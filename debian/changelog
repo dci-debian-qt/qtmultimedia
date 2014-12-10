@@ -1,3 +1,25 @@
+qtmultimedia-opensource-src (5.3.2-5) unstable; urgency=medium
+
+  * Simplify libqt5multimedia5-plugins.install, solving the FTBFS on
+    kfreebsd-* due to the missing ALSA plugin.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 03 Dec 2014 13:51:59 -0300
+
+qtmultimedia-opensource-src (5.3.2-4) unstable; urgency=medium
+
+  * Add a patch from Chris Ruvolo to also build the ALSA plugin even if we
+    are building with pulseaudio support (Closes: #771391).
+    - Include the plugin in libqt5multimedia5-plugins' install file.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 03 Dec 2014 10:37:12 -0300
+
+qtmultimedia-opensource-src (5.3.2-3) unstable; urgency=medium
+
+  * Remove CMake files for plugins, we don't need to ship them
+    (Closes: #765488).
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 15 Oct 2014 12:46:29 -0300
+
 qtmultimedia-opensource-src (5.3.2-2~bpo70+2) wheezy-backports; urgency=medium
 
   * Update symbols files with buildds' logs.
