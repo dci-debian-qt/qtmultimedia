@@ -1,3 +1,7 @@
+qtmultimedia-opensource-src (5.3.2-5~bpo70+1) UNRELEASED; urgency=medium
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 10 Dec 2014 19:47:18 -0300
+
 qtmultimedia-opensource-src (5.3.2-5) unstable; urgency=medium
 
   * Simplify libqt5multimedia5-plugins.install, solving the FTBFS on
