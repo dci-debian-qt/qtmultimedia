@@ -1,4 +1,5 @@
 rpath_nonlinux.diff
 skip_failing_tests.patch
-adding_media_role_property.patch
 qgstreamercapturesession_avoid_race_eos.patch
+Added-new-playlist-QML-type.patch
+Add-audio-role-API-to-QMediaPlayer.patch

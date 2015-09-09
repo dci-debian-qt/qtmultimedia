@@ -7,6 +7,10 @@ qtmultimedia-opensource-src (5.5.0-3ubuntu1) UNRELEASED; urgency=medium
     - Transitional package for 14.04 LTS -> 16.04 LTS
     - Own .symbols files
     - Three patches
+  * debian/patches/Add-audio-role-API-to-QMediaPlayer.patch
+    debian/patches/Added-new-playlist-QML-type.patch:
+    - The Audio role API and Playlist type patches were upstreamed for 
+      Qt 5.6, use backported versions of those.
 
  -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 17 Jul 2015 13:14:07 +0000
 
