@@ -1,0 +1,264 @@
+Title: Adding property for clients to be able to set up the audio role
+Forwarded: no
+Bug: https://bugreports.qt-project.org/browse/QTBUG-41054
+Author: Jim Hodapp <jim.hodapp@canonical.com>
+
+Index: qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/Video.qml
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/imports/multimedia/Video.qml
++++ qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/Video.qml
+@@ -273,6 +273,23 @@ Item {
+     property alias position:        player.position
+ 
+     /*!
++        \qmlproperty enumeration MediaPlayer::audioRole
++
++        This property holds the audio stream role (audio stream grouping). This is typically
++        used to group audio streams into groups for distinct group volume control.
++
++        \list
++        \li MediaPlayer.alarm - the audio stream is part of the alarm group
++        \li MediaPlayer.alert - the audio stream is part of the alert group
++        \li MediaPlayer.multimedia - the audio stream is part of the multimedia group (default)
++        \li MediaPlayer.phone - the audio stream is part of the phone group
++        \endlist
++
++        The default state is MediaPlayer.StoppedState.
++    */
++    property alias audioRole:       player.audioRole
++
++    /*!
+         \qmlproperty bool Video::seekable
+ 
+         This property holds whether the playback position of the video can be
+Index: qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/plugins.qmltypes
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/imports/multimedia/plugins.qmltypes
++++ qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/plugins.qmltypes
+@@ -181,6 +188,15 @@ Module {
+                 "ResourceMissing": 3
+             }
+         }
++        Enum {
++            name: "AudioRole"
++            values: {
++                "alarm": 0,
++                "alert": 1,
++                "multimedia": 2,
++                "phone": 3
++            }
++        }
+         Property { name: "source"; type: "QUrl" }
+         Property { name: "loops"; type: "int" }
+         Property { name: "playbackState"; type: "PlaybackState"; isReadonly: true }
+@@ -206,6 +222,7 @@ Module {
+         }
+         Property { name: "mediaObject"; type: "QObject"; isReadonly: true; isPointer: true }
+         Property { name: "availability"; type: "Availability"; isReadonly: true }
++        Property { name: "audioRole"; type: "AudioRole" }
+         Signal { name: "loopCountChanged" }
+         Signal { name: "paused" }
+         Signal { name: "stopped" }
+Index: qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/qdeclarativeaudio.cpp
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/imports/multimedia/qdeclarativeaudio.cpp
++++ qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/qdeclarativeaudio.cpp
+@@ -157,6 +157,27 @@ QDeclarativeAudio::Availability QDeclara
+     return Availability(m_player->availability());
+ }
+ 
++/*!
++    \qmlproperty QtMultimedia::Audio::audioRole
++
++    This property returns the audio stream role (audio stream grouping).
++*/
++QDeclarativeAudio::AudioRole QDeclarativeAudio::audioRole() const
++{
++    return AudioRole(m_player->audioRole());
++}
++
++/*!
++    \qmlproperty QtMultimedia::Audio::audioRole
++
++    This property sets the audio stream role (audio stream grouping). This is typically
++    used to group audio streams into groups for distinct group volume control.
++*/
++void QDeclarativeAudio::setAudioRole(QDeclarativeAudio::AudioRole audioRole)
++{
++    m_player->setAudioRole(QMediaPlayer::AudioRole(audioRole));
++}
++
+ QUrl QDeclarativeAudio::source() const
+ {
+     return m_source;
+Index: qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/qdeclarativeaudio_p.h
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/imports/multimedia/qdeclarativeaudio_p.h
++++ qtmultimedia-opensource-src-5.3.0/src/imports/multimedia/qdeclarativeaudio_p.h
+@@ -93,11 +93,13 @@ class QDeclarativeAudio : public QObject
+     Q_PROPERTY(QDeclarativeMediaMetaData *metaData READ metaData CONSTANT)
+     Q_PROPERTY(QObject *mediaObject READ mediaObject NOTIFY mediaObjectChanged SCRIPTABLE false DESIGNABLE false)
+     Q_PROPERTY(Availability availability READ availability NOTIFY availabilityChanged)
++    Q_PROPERTY(AudioRole audioRole READ audioRole WRITE setAudioRole)
+     Q_ENUMS(Status)
+     Q_ENUMS(Error)
+     Q_ENUMS(Loop)
+     Q_ENUMS(PlaybackState)
+     Q_ENUMS(Availability)
++    Q_ENUMS(AudioRole)
+     Q_INTERFACES(QQmlParserStatus)
+ public:
+     enum Status
+@@ -142,6 +144,13 @@ public:
+         ResourceMissing = QMultimedia::ResourceError
+     };
+ 
++    enum AudioRole {
++        alarm = QMediaPlayer::AlarmRole,
++        alert = QMediaPlayer::AlertRole,
++        multimedia = QMediaPlayer::MultimediaRole,
++        phone = QMediaPlayer::PhoneRole
++    };
++
+     QDeclarativeAudio(QObject *parent = 0);
+     ~QDeclarativeAudio();
+ 
+@@ -160,6 +169,9 @@ public:
+ 
+     Availability availability() const;
+ 
++    AudioRole audioRole() const;
++    void setAudioRole(AudioRole audioRole);
++
+     QUrl source() const;
+     void setSource(const QUrl &url);
+ 
+Index: qtmultimedia-opensource-src-5.3.0/src/multimedia/controls/qmediaplayercontrol.cpp
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/multimedia/controls/qmediaplayercontrol.cpp
++++ qtmultimedia-opensource-src-5.3.0/src/multimedia/controls/qmediaplayercontrol.cpp
+@@ -120,6 +120,24 @@ QMediaPlayerControl::QMediaPlayerControl
+ */
+ 
+ /*!
++    Returns the audio stream role (audio stream grouping). This is typically
++    used to group audio streams into groups for distinct group volume control.
++*/
++QMediaPlayer::AudioRole QMediaPlayerControl::audioRole() const
++{
++    return QMediaPlayer::MultimediaRole;
++}
++
++/*!
++    Sets the audio stream role (audio stream grouping). This is typically
++    used to group audio streams into groups for distinct group volume control.
++*/
++void QMediaPlayerControl::setAudioRole(QMediaPlayer::AudioRole audioRole)
++{
++    Q_UNUSED(audioRole);
++}
++
++/*!
+     \fn QMediaPlayerControl::mediaStatusChanged(QMediaPlayer::MediaStatus status)
+ 
+     Signals that the \a status of the current media has changed.
+Index: qtmultimedia-opensource-src-5.3.0/src/multimedia/controls/qmediaplayercontrol.h
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/multimedia/controls/qmediaplayercontrol.h
++++ qtmultimedia-opensource-src-5.3.0/src/multimedia/controls/qmediaplayercontrol.h
+@@ -64,6 +64,9 @@ public:
+ 
+     virtual QMediaPlayer::MediaStatus mediaStatus() const = 0;
+ 
++    virtual QMediaPlayer::AudioRole audioRole() const;
++    virtual void setAudioRole(QMediaPlayer::AudioRole audioRole);
++
+     virtual qint64 duration() const = 0;
+ 
+     virtual qint64 position() const = 0;
+Index: qtmultimedia-opensource-src-5.3.0/src/multimedia/playback/qmediaplayer.cpp
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/multimedia/playback/qmediaplayer.cpp
++++ qtmultimedia-opensource-src-5.3.0/src/multimedia/playback/qmediaplayer.cpp
+@@ -99,6 +99,7 @@ qRegisterMediaPlayerMetaTypes
+ {
+     qRegisterMetaType<QMediaPlayer::State>("QMediaPlayer::State");
+     qRegisterMetaType<QMediaPlayer::MediaStatus>("QMediaPlayer::MediaStatus");
++    qRegisterMetaType<QMediaPlayer::AudioRole>("QMediaPlayer::AudioRole");
+     qRegisterMetaType<QMediaPlayer::Error>("QMediaPlayer::Error");
+ }
+ 
+@@ -1028,6 +1029,33 @@ QMultimedia::AvailabilityStatus QMediaPl
+     return QMediaObject::availability();
+ }
+ 
++/*!
++    Returns the audio stream role (audio stream grouping). This is typically
++    used to group audio streams into groups for distinct group volume control.
++*/
++QMediaPlayer::AudioRole QMediaPlayer::audioRole() const
++{
++    Q_D(const QMediaPlayer);
++
++    if (d->control != NULL)
++        return d->control->audioRole();
++
++    // MultimediaRole is the default role if none is set
++    return QMediaPlayer::AudioRole::MultimediaRole;
++}
++
++/*!
++    Sets the audio stream role (audio stream grouping). This is typically
++    used to group audio streams into groups for distinct group volume control.
++*/
++void QMediaPlayer::setAudioRole(QMediaPlayer::AudioRole audioRole)
++{
++    Q_D(QMediaPlayer);
++    if (!d->control)
++        return;
++
++    d->control->setAudioRole(audioRole);
++}
+ 
+ // Enums
+ /*!
+Index: qtmultimedia-opensource-src-5.3.0/src/multimedia/playback/qmediaplayer.h
+===================================================================
+--- qtmultimedia-opensource-src-5.3.0.orig/src/multimedia/playback/qmediaplayer.h
++++ qtmultimedia-opensource-src-5.3.0/src/multimedia/playback/qmediaplayer.h
+@@ -74,9 +74,11 @@ class Q_MULTIMEDIA_EXPORT QMediaPlayer :
+     Q_PROPERTY(qreal playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
+     Q_PROPERTY(State state READ state NOTIFY stateChanged)
+     Q_PROPERTY(MediaStatus mediaStatus READ mediaStatus NOTIFY mediaStatusChanged)
++    Q_PROPERTY(AudioRole audioRole READ audioRole WRITE setAudioRole)
+     Q_PROPERTY(QString error READ errorString)
+     Q_ENUMS(State)
+     Q_ENUMS(MediaStatus)
++    Q_ENUMS(AudioRole)
+     Q_ENUMS(Error)
+ 
+ public:
+@@ -100,6 +102,13 @@ public:
+         InvalidMedia
+     };
+ 
++    enum AudioRole {
++        AlarmRole,
++        AlertRole,
++        MultimediaRole,
++        PhoneRole
++    };
++
+     enum Flag
+     {
+         LowLatency = 0x01,
+@@ -159,6 +168,9 @@ public:
+ 
+     QMultimedia::AvailabilityStatus availability() const;
+ 
++    AudioRole audioRole() const;
++    void setAudioRole(AudioRole audioRole);
++
+ public Q_SLOTS:
+     void play();
+     void pause();
