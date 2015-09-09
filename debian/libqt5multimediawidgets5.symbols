@@ -1,6 +1,5 @@
-# SymbolsHelper-Confirmed: 5.4.0 amd64
-libQt5MultimediaWidgets.so.5 libqt5multimediawidgets5 #MINVER#
-| libqt5multimediawidgets5 #MINVER#
+# SymbolsHelper-Confirmed: 5.4.0 amd64 arm64 armhf i386 powerpc ppc64el
+libQt5MultimediaWidgets.so.5 libqt5multimediawidgets5 #MINVER# | libqt5multimediawidgets5-gles #MINVER#
  _ZN12QVideoWidget10hueChangedEi@Base 5.0.2
  _ZN12QVideoWidget10paintEventEP11QPaintEvent@Base 5.0.2
  _ZN12QVideoWidget11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.0.2
