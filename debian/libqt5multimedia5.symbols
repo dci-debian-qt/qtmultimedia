@@ -221,7 +221,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN12QMediaPlayer11setPositionEx@Base 5.0.2
  _ZN12QMediaPlayer12mediaChangedERK13QMediaContent@Base 5.0.2
  _ZN12QMediaPlayer12mutedChangedEb@Base 5.0.2
- _ZN12QMediaPlayer12setAudioRoleENS_9AudioRoleE@Base 5.3.0-1ubuntu2
+ _ZN12QMediaPlayer12setAudioRoleEN6QAudio4RoleE@Base 5.5.0
  _ZN12QMediaPlayer12stateChangedENS_5StateE@Base 5.0.2
  _ZN12QMediaPlayer13volumeChangedEi@Base 5.0.2
  _ZN12QMediaPlayer14setVideoOutputEP12QVideoWidget@Base 5.0.2
@@ -231,6 +231,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN12QMediaPlayer15positionChangedEx@Base 5.0.2
  _ZN12QMediaPlayer15seekableChangedEb@Base 5.0.2
  _ZN12QMediaPlayer15setPlaybackRateEd@Base 5.2.0
+ _ZN12QMediaPlayer16audioRoleChangedEN6QAudio4RoleE@Base 5.5.0
  _ZN12QMediaPlayer16staticMetaObjectE@Base 5.0.2
  _ZN12QMediaPlayer18mediaStatusChangedENS_11MediaStatusE@Base 5.0.2
  _ZN12QMediaPlayer18supportedMimeTypesE6QFlagsINS_4FlagEE@Base 5.0.2
@@ -636,6 +637,15 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN16QCameraFocusZoneD1Ev@Base 5.0.2
  _ZN16QCameraFocusZoneD2Ev@Base 5.0.2
  _ZN16QCameraFocusZoneaSERKS_@Base 5.0.2
+ _ZN17QAudioRoleControl11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.5.0
+ _ZN17QAudioRoleControl11qt_metacastEPKc@Base 5.5.0
+ _ZN17QAudioRoleControl16audioRoleChangedEN6QAudio4RoleE@Base 5.5.0
+ _ZN17QAudioRoleControl16staticMetaObjectE@Base 5.5.0
+ _ZN17QAudioRoleControlC1EP7QObject@Base 5.5.0
+ _ZN17QAudioRoleControlC2EP7QObject@Base 5.5.0
+ _ZN17QAudioRoleControlD0Ev@Base 5.5.0
+ _ZN17QAudioRoleControlD1Ev@Base 5.5.0
+ _ZN17QAudioRoleControlD2Ev@Base 5.5.0
  _ZN17QImageVideoBuffer3mapEN20QAbstractVideoBuffer7MapModeEPiS2_@Base 5.0.2
  _ZN17QImageVideoBuffer5unmapEv@Base 5.0.2
  _ZN17QImageVideoBufferC1ERK6QImage@Base 5.0.2
@@ -790,7 +800,6 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN19QMediaPlayerControl11qt_metacastEPKc@Base 5.0.2
  _ZN19QMediaPlayerControl12mediaChangedERK13QMediaContent@Base 5.0.2
  _ZN19QMediaPlayerControl12mutedChangedEb@Base 5.0.2
- _ZN19QMediaPlayerControl12setAudioRoleEN12QMediaPlayer9AudioRoleE@Base 5.3.0-1ubuntu2
  _ZN19QMediaPlayerControl12stateChangedEN12QMediaPlayer5StateE@Base 5.0.2
  _ZN19QMediaPlayerControl13volumeChangedEi@Base 5.0.2
  _ZN19QMediaPlayerControl15durationChangedEx@Base 5.0.2
@@ -1613,6 +1622,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZNK12QMediaPlayer12playbackRateEv@Base 5.0.2
  _ZNK12QMediaPlayer16isAudioAvailableEv@Base 5.0.2
  _ZNK12QMediaPlayer16isVideoAvailableEv@Base 5.0.2
+ _ZNK12QMediaPlayer19supportedAudioRolesEv@Base 5.5.0
  _ZNK12QMediaPlayer27currentNetworkConfigurationEv@Base 5.0.2
  _ZNK12QMediaPlayer5errorEv@Base 5.0.2
  _ZNK12QMediaPlayer5mediaEv@Base 5.0.2
@@ -1767,6 +1777,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZNK16QCameraFocusZone7isValidEv@Base 5.0.2
  _ZNK16QCameraFocusZoneeqERKS_@Base 5.0.2
  _ZNK16QCameraFocusZoneneERKS_@Base 5.0.2
+ _ZNK17QAudioRoleControl10metaObjectEv@Base 5.5.0
  _ZNK17QImageVideoBuffer7mapModeEv@Base 5.0.2
  _ZNK17QRadioDataControl10metaObjectEv@Base 5.0.2
  _ZNK18QAudioSystemPlugin10metaObjectEv@Base 5.0.2
@@ -1801,7 +1812,6 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZNK19QCameraImageCapture5errorEv@Base 5.0.2
  _ZNK19QCameraLocksControl10metaObjectEv@Base 5.0.2
  _ZNK19QMediaPlayerControl10metaObjectEv@Base 5.0.2
- _ZNK19QMediaPlayerControl9audioRoleEv@Base 5.3.0-1ubuntu2
  _ZNK19QPlaylistFileParser10metaObjectEv@Base 5.0.2
  _ZNK19QVideoSurfaceFormat10frameWidthEv@Base 5.0.2
  _ZNK19QVideoSurfaceFormat10handleTypeEv@Base 5.0.2
@@ -1996,6 +2006,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZTI14QMediaPlaylist@Base 5.0.2
  _ZTI14QMediaRecorder@Base 5.0.2
  _ZTI15QCameraExposure@Base 5.0.2
+ _ZTI17QAudioRoleControl@Base 5.5.0
  _ZTI17QImageVideoBuffer@Base 5.0.2
  _ZTI17QRadioDataControl@Base 5.0.2
  _ZTI18QAudioSystemPlugin@Base 5.0.2
@@ -2086,6 +2097,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZTS14QMediaPlaylist@Base 5.0.2
  _ZTS14QMediaRecorder@Base 5.0.2
  _ZTS15QCameraExposure@Base 5.0.2
+ _ZTS17QAudioRoleControl@Base 5.5.0
  _ZTS17QImageVideoBuffer@Base 5.0.2
  _ZTS17QRadioDataControl@Base 5.0.2
  _ZTS18QAudioSystemPlugin@Base 5.0.2
@@ -2176,6 +2188,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZTV14QMediaPlaylist@Base 5.0.2
  _ZTV14QMediaRecorder@Base 5.0.2
  _ZTV15QCameraExposure@Base 5.0.2
+ _ZTV17QAudioRoleControl@Base 5.5.0
  _ZTV17QImageVideoBuffer@Base 5.0.2
  _ZTV17QRadioDataControl@Base 5.0.2
  _ZTV18QAudioSystemPlugin@Base 5.0.2
@@ -2256,6 +2269,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _Zls6QDebugN20QAbstractVideoBuffer10HandleTypeE@Base 5.0.2
  _Zls6QDebugN20QAbstractVideoBuffer7MapModeE@Base 5.0.2
  _Zls6QDebugN6QAudio4ModeE@Base 5.0.2
+ _Zls6QDebugN6QAudio4RoleE@Base 5.5.0
  _Zls6QDebugN6QAudio5ErrorE@Base 5.0.2
  _Zls6QDebugN6QAudio5StateE@Base 5.0.2
  _Zls6QDebugRK11QCameraInfo@Base 5.3.0
