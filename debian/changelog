@@ -1,3 +1,15 @@
+qtmultimedia-opensource-src (5.5.0-3ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * Update symbols.
+  * Merge with Debian's packaging, remaining changes:
+    - Build without OpenAL (in universe), so without qml-module-qtaudioengine
+    - Transitional package for 14.04 LTS -> 16.04 LTS
+    - Own .symbols files
+    - Three patches
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 17 Jul 2015 13:14:07 +0000
+
 qtmultimedia-opensource-src (5.5.0-3) experimental; urgency=medium
 
   * Move all private headers to debian/private-headers during build.
@@ -42,6 +54,21 @@ qtmultimedia-opensource-src (5.4.2-2) unstable; urgency=medium
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 24 Jun 2015 15:34:56 -0300
 
+qtmultimedia-opensource-src (5.4.2-1ubuntu2) wily; urgency=medium
+ 
+  * Rebuild for GCC5 transition.
+  * Update symbols.
+ 
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 13 Jul 2015 16:52:43 +0300
+
+qtmultimedia-opensource-src (5.4.2-1ubuntu1) wily; urgency=medium
+
+  * New upstream release.
+  * debian/patches/adding_media_role_property.patch:
+    - Adapt for 5.4.2.
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Thu, 11 Jun 2015 13:43:13 +0000
+
 qtmultimedia-opensource-src (5.4.2-1) experimental; urgency=medium
 
   * New upstream release.
@@ -54,6 +81,25 @@ qtmultimedia-opensource-src (5.4.2-1) experimental; urgency=medium
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 03 Jun 2015 15:52:48 -0300
 
+qtmultimedia-opensource-src (5.4.1-1ubuntu2) vivid; urgency=medium
+
+  * debian/patches/debian/patches/qgstreamercapturesession_avoid_race_eos.patch:
+    - Avoid races when sending EOS, making sure pipeline is in playing state
+      first (LP: #1433563)
+
+ -- Ricardo Salveti de Araujo <ricardo.salveti@canonical.com>  Sun, 19 Apr 2015 20:13:29 -0300
+
+qtmultimedia-opensource-src (5.4.1-1ubuntu1) vivid; urgency=medium
+
+  * New upstream release.
+  * Sync with Debian, keep remaining changes:
+    - Keep omitting OpenAL from build-deps and don't build Qt Audio Engine
+    - Enable tests
+    - Keep the transitional package until 16.04 LTS
+    - adding_media_role_property.patch
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Wed, 11 Mar 2015 06:18:38 +0000
+
 qtmultimedia-opensource-src (5.4.1-1) experimental; urgency=medium
 
   * New upstream release.
@@ -65,6 +111,23 @@ qtmultimedia-opensource-src (5.4.1-1) experimental; urgency=medium
   * Also add one new symbol to libqt5multimediaquick-p5.symbols.
 
  -- Dmitry Shachnev <mitya57@debian.org>  Thu, 05 Mar 2015 14:45:17 +0300
+
+qtmultimedia-opensource-src (5.4.0-2ubuntu1) vivid; urgency=medium
+
+  * New upstream release.
+  * Bump build dependencies.
+  * Update qtmultimedia-dev.install
+  * Add qtmultimedia5-dev.install-armhf, rename qtmultimedia5-dev.install
+    to qtmultimedia5-dev.install-common and update debian/rules to handle
+    those similar to how it's done in qtbase.
+  * Sync with Debian. Remaining changes:
+    - Keep omitting OpenAL from build-deps and don't build Qt Audio Engine
+    - Enable tests
+    - Keep the transitional package until 16.04 LTS
+    - adding_media_role_property.patch
+  * Update symbols
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 13 Feb 2015 06:37:53 +0000
 
 qtmultimedia-opensource-src (5.4.0-2) experimental; urgency=medium
 
@@ -130,6 +193,14 @@ qtmultimedia-opensource-src (5.3.2-1) experimental; urgency=medium
   * Remove test_v4l.patch, applied upstream.
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 17 Sep 2014 20:11:40 -0300
+
+qtmultimedia-opensource-src (5.3.2-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+  * Update symbols
+  * Sync CMake fix from Debian
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 28 Oct 2014 07:03:09 +0000
 
 qtmultimedia-opensource-src (5.3.1-4) unstable; urgency=medium
 
@@ -213,6 +284,24 @@ qtmultimedia-opensource-src (5.3.0-2) unstable; urgency=medium
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 06 Jun 2014 15:08:29 -0300
 
+qtmultimedia-opensource-src (5.3.0-1ubuntu2) utopic; urgency=medium
+
+  * debian/patches/adding_media_role_property.patch:
+    - Adding patch to allow apps to specify the media role to be used when
+      playing audio
+  * Updating symbols with current build log
+
+ -- Ricardo Salveti de Araujo <ricardo.salveti@canonical.com>  Tue, 02 Sep 2014 20:42:02 -0300
+
+qtmultimedia-opensource-src (5.3.0-1ubuntu1) utopic; urgency=medium
+
+  * Build against Qt 5.3
+  * Move includes and change private headers cleanup accordingly
+  * Drop fix_failing_test.diff and bigendian_support.diff, merged upstream
+  * Sync with Debian
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 06 Jun 2014 11:20:11 +0000
+
 qtmultimedia-opensource-src (5.3.0-1) experimental; urgency=medium
 
   [ Lisandro Damián Nicanor Pérez Meyer ]
@@ -236,6 +325,20 @@ qtmultimedia-opensource-src (5.3.0-1) experimental; urgency=medium
     rpath_nonlinux.diff. (Closes: #748816)
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 28 May 2014 23:59:53 -0300
+
+qtmultimedia-opensource-src (5.2.1-3ubuntu1) utopic; urgency=medium
+
+  * Sync with Debian, including renaming the QML module. Remaining changes:
+    - Keep omitting OpenAL from build-deps and don't build Qt Audio Engine
+    - Enable tests
+    - Allow the -gles variant of Qt to co-exist via symbol files
+    - Make the transitional package arch:any & multi-arch for successful 
+      cross-compiling when using the old package names as dependencies
+    - Keep the bigendian_support patch
+    - Don't bring the FreeBSD only backport patch
+    - Keep libqt5multimedia5-plugins as a dependency to the QML module
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Wed, 07 May 2014 08:03:29 +0000
 
 qtmultimedia-opensource-src (5.2.1-3) unstable; urgency=medium
 
@@ -262,27 +365,48 @@ qtmultimedia-opensource-src (5.2.1-1) experimental; urgency=medium
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 19 Feb 2014 19:26:24 -0300
 
-qtmultimedia-opensource-src (5.2.0-3) unstable; urgency=low
+qtmultimedia-opensource-src (5.2.1-0ubuntu5) trusty; urgency=medium
 
-  [ Pino Toscano ]
-  * Simplify qtmultimedia5-examples.install.
-  * Remove the Pre-Depends on dpkg >= 1.15.6~, since that version is available
-    in Squeeze already.
+  * libqt5multimediawidgets5.symbols: adding dep alternatives for the
+    version compatible with OpenGLES (provided by another src pkg)
 
-  [ Lisandro Damián Nicanor Pérez Meyer ]
-  * Upload to unstable.
-  * Move mkspec files to their new location.
-    - B-D on qtbase5-private-dev 5.2.0+dfsg-7 which changed the location.
-  * Update symbols files with buildd's logs.
-  * Update Standards-Version to 3.9.5, no changes required.
+ -- Ricardo Salveti de Araujo <ricardo.salveti@canonical.com>  Thu, 10 Apr 2014 04:54:25 -0300
 
- -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 31 Jan 2014 20:06:31 -0300
+qtmultimedia-opensource-src (5.2.1-0ubuntu4) trusty; urgency=medium
 
-qtmultimedia-opensource-src (5.2.0-2) experimental; urgency=medium
+  * Update the previous patch to never do duplicate endianness
+    conversion.
 
-  * Update symbols files with buildd's logs.
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sun, 16 Mar 2014 20:36:22 +0400
 
- -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 20 Dec 2013 14:39:45 -0300
+qtmultimedia-opensource-src (5.2.1-0ubuntu3) trusty; urgency=medium
+
+  * Add new patch to support big-endian systems (a second attempt to
+    fix LP: #1292364).
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sun, 16 Mar 2014 12:42:25 +0400
+
+qtmultimedia-opensource-src (5.2.1-0ubuntu2) trusty; urgency=medium
+
+  * Fix test that was failing on powerpc (LP: #1292364).
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sat, 15 Mar 2014 19:11:12 +0400
+
+qtmultimedia-opensource-src (5.2.1-0ubuntu1) trusty; urgency=low
+
+  [ Omer Akram ]
+  * Run unittests during build, disable flaky tests (LP: #1193370)
+
+  [ Timo Jyrinki ]
+  * New upstream release
+  * Update *.install
+  * Merge Debian packaging 5.2.0-1, remaining changes:
+    - Keep omitting OpenAL from build-deps
+    - Don't build Qt Audio Engine
+    - Enable tests
+  * Update symbols
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 28 Feb 2014 09:03:43 +0000
 
 qtmultimedia-opensource-src (5.2.0-1) experimental; urgency=low
 
@@ -342,6 +466,35 @@ qtmultimedia-opensource-src (5.1.0-1) experimental; urgency=low
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Thu, 11 Jul 2013 20:42:48 -0300
 
+qtmultimedia-opensource-src (5.0.2-4ubuntu4) trusty; urgency=low
+
+  * Add libqt5multimedia5-plugins dependency to QML plugin (LP: #1202996)
+  * Drop Qt Audio Engine for now to not bring OpenAL dependency
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 11 Oct 2013 08:13:50 +0300
+
+qtmultimedia-opensource-src (5.0.2-4ubuntu3) saucy; urgency=low
+
+  * debian/control: adding missing dependencies for qtmultimedia5-examples
+
+ -- Ricardo Salveti de Araujo <ricardo.salveti@canonical.com>  Tue, 02 Jul 2013 17:52:51 -0300
+
+qtmultimedia-opensource-src (5.0.2-4ubuntu2) saucy; urgency=low
+
+  * Add .install files for the new packages.
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Tue, 02 Jul 2013 19:54:41 +0400
+
+qtmultimedia-opensource-src (5.0.2-4ubuntu1) saucy; urgency=low
+
+  * Merge with Debian packaging Git, remaining changes:
+    - Maintainer field and Vcs-Bzr.
+    - Use ${misc:Pre-Depends}.
+    - Add Conflicts/Replaces fields for our old packages.
+    - Updated symbols files.
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Tue, 02 Jul 2013 19:42:00 +0400
+
 qtmultimedia-opensource-src (5.0.2-4) experimental; urgency=low
 
   * Build the documentation shipped with this submodule as a build-indep task:
@@ -370,6 +523,23 @@ qtmultimedia-opensource-src (5.0.2-3) experimental; urgency=low
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 29 May 2013 12:19:03 -0300
 
+qtmultimedia-opensource-src (5.0.2-2ubuntu2) saucy; urgency=low
+
+  * Update libqt5multimedia5.symbols for qreal substitutions for armhf.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Thu, 23 May 2013 19:47:12 -0600
+
+qtmultimedia-opensource-src (5.0.2-2ubuntu1) saucy; urgency=low
+
+  * Sync with Debian, new upstream version
+    - Audio, mediaservice and playlistformats plugins were splitted to 
+      libqt5multimedia5-plugins - add to your dependencies!
+    - Keep replaces/provides/conflicts for old package names
+    - Fix pkgconfig files
+    - Update libqgsttools-p1.symbols for saucy
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 14 May 2013 14:20:13 +0300
+
 qtmultimedia-opensource-src (5.0.2-2) experimental; urgency=low
 
   [ Pino Toscano ]
@@ -387,3 +557,51 @@ qtmultimedia-opensource-src (5.0.2-1) experimental; urgency=low
   * Initial release. (Closes: #697509)
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sun, 28 Apr 2013 09:28:52 -0300
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu6) raring; urgency=low
+
+  * debian/control
+    - added a Replaces to libqt5multimedia5 for qtmultimedia5-dev to 
+      handle the files being moved
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Thu, 28 Mar 2013 14:43:34 -0400
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu5) raring; urgency=low
+
+  * Fix plugin library files erronously in -dev (LP: #1159792)
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 25 Mar 2013 13:43:07 +0000
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu4) raring; urgency=low
+
+  * debian/control: also C/R/P libqt5declarative5-qtmultimedia-plugin
+  * Add Vcs-Bzr for ~kubuntu-packagers
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Wed, 27 Feb 2013 10:23:24 +0000
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu3) raring; urgency=low
+
+  * debian/control: need to also C/R/P against libqgsttools for the ppa
+    transition
+
+ -- Didier Roche <didrocks@ubuntu.com>  Thu, 21 Feb 2013 18:21:29 +0000
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu2) raring; urgency=low
+
+  [ Timo Jyrinki ]
+  * Fix pkgconfig Libs.private path (LP: #1125156) 
+  * Add qtdeclarative5-qtaudioengine-plugin
+
+  [ Didier Roche ]
+  * Add libqt5multimediaquick-qt5 R/C/P libqt5multimediaquick5 to transition
+    from the sdk ppa to raring
+
+ -- Didier Roche <didrocks@ubuntu.com>  Thu, 21 Feb 2013 16:11:14 +0000
+
+qtmultimedia-opensource-src (5.0.1-0ubuntu1) raring; urgency=low
+
+  * Initial release.
+  * Cherry-pick from upstream:
+    - add_license_files.patch
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Wed, 06 Feb 2013 14:01:27 +0000
