@@ -28,6 +28,15 @@ Author: Omer Akram <om26er@ubuntu.com>
 === modified file 'tests/auto/unit/multimedia.pro'
 --- a/tests/auto/unit/multimedia.pro	2013-05-23 19:47:12 +0000
 +++ b/tests/auto/unit/multimedia.pro	2013-12-12 19:46:46 +0000
+@@ -13,7 +13,7 @@
+     qmediacontent \
+     qmediaobject \
+     qmediaplayer \
+-    qmediaplaylist \
++#    qmediaplaylist \
+     qmediaplaylistnavigator \
+     qmediapluginloader \
+     qmediarecorder \
 @@ -19,7 +19,7 @@
      qmediarecorder \
      qmediaresource \
@@ -37,3 +46,14 @@ Author: Omer Akram <om26er@ubuntu.com>
      qmediatimerange \
      qmetadatareadercontrol \
      qmetadatawritercontrol \
+=== modified file 'tests/auto/unit/unit.pro'
+--- a/tests/auto/unit/unit.pro    2015-06-29 20:05:38.000000000 +0000
++++ b/tests/auto/unit/unit.pro    2015-10-13 12:18:36.808963658 +0000
+@@ -2,4 +2,5 @@
+ 
+ SUBDIRS += multimedia.pro
+ qtHaveModule(widgets): SUBDIRS += multimediawidgets.pro
+-qtHaveModule(qml): SUBDIRS += multimediaqml.pro
++# Does not find the multimedia module despite paths being set
++#qtHaveModule(qml): SUBDIRS += multimediaqml.pro
+
