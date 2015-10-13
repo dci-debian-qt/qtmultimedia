@@ -24,6 +24,7 @@ usr/include/*/qt5/QtMultimedia/QAudioOutput
 usr/include/*/qt5/QtMultimedia/QAudioOutputSelectorControl
 usr/include/*/qt5/QtMultimedia/QAudioProbe
 usr/include/*/qt5/QtMultimedia/QAudioRecorder
+usr/include/*/qt5/QtMultimedia/QAudioRoleControl
 usr/include/*/qt5/QtMultimedia/QAudioSystemFactoryInterface
 usr/include/*/qt5/QtMultimedia/QAudioSystemPlugin
 usr/include/*/qt5/QtMultimedia/QCamera
@@ -114,6 +115,7 @@ usr/include/*/qt5/QtMultimedia/qaudiooutput.h
 usr/include/*/qt5/QtMultimedia/qaudiooutputselectorcontrol.h
 usr/include/*/qt5/QtMultimedia/qaudioprobe.h
 usr/include/*/qt5/QtMultimedia/qaudiorecorder.h
+usr/include/*/qt5/QtMultimedia/qaudiorolecontrol.h
 usr/include/*/qt5/QtMultimedia/qaudiosystem.h
 usr/include/*/qt5/QtMultimedia/qaudiosystemplugin.h
 usr/include/*/qt5/QtMultimedia/qcamera.h
@@ -207,3 +209,4 @@ usr/lib/*/pkgconfig/Qt5MultimediaQuick_p.pc
 usr/lib/*/pkgconfig/Qt5MultimediaWidgets.pc
 usr/lib/*/qt5/mkspecs/modules/qt_lib_multimedia.pri
 usr/lib/*/qt5/mkspecs/modules/qt_lib_multimediawidgets.pri
+

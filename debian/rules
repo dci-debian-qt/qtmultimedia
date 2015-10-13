@@ -21,6 +21,8 @@ pkgs_with_os = $(patsubst debian/%.install-$(DEB_HOST_ARCH_OS),%,$(wildcard debi
 	dh $@ --parallel --with pkgkde_symbolshelper --dbg-package=qtmultimedia5-dbg
 
 override_dh_auto_configure:
+	# Regenerate headers for the upstream audio role patch backport
+	mkdir .git
 	qmake
 
 override_dh_auto_build-indep:
