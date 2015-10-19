@@ -61,6 +61,14 @@ qtmultimedia-opensource-src (5.4.2-2) unstable; urgency=medium
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 24 Jun 2015 15:34:56 -0300
 
+qtmultimedia-opensource-src (5.4.2-1ubuntu3) wily; urgency=medium
+
+  [ Jim Hodapp ]  
+  * debian/patches/add_qdeclarative_playlist.patch:
+    - Add support for declarative playlists
+
+ -- Alfonso Sanchez-Beato (email Canonical) <alfonso.sanchez-beato@canonical.com>  Fri, 16 Oct 2015 15:17:50 +0200
+
 qtmultimedia-opensource-src (5.4.2-1ubuntu2) wily; urgency=medium
  
   * Rebuild for GCC5 transition.
