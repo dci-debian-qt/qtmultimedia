@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.5.0 amd64 arm64 armhf i386 powerpc ppc64el
+# SymbolsHelper-Confirmed: 5.5.1 amd64 arm64 armhf i386 powerpc ppc64el
 libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN10QRadioData11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.0.2
  _ZN10QRadioData11qt_metacastEPKc@Base 5.0.2
@@ -483,6 +483,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN14QMediaPlaylist11removeMediaEii@Base 5.0.2
  _ZN14QMediaPlaylist12mediaChangedEii@Base 5.0.2
  _ZN14QMediaPlaylist12mediaRemovedEii@Base 5.0.2
+ _ZN14QMediaPlaylist12syncControlsEP21QMediaPlaylistControlS1_@Base 5.5.1
  _ZN14QMediaPlaylist13mediaInsertedEii@Base 5.0.2
  _ZN14QMediaPlaylist14setMediaObjectEP12QMediaObject@Base 5.0.2
  _ZN14QMediaPlaylist15setCurrentIndexEi@Base 5.0.2
