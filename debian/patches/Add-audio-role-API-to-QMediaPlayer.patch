@@ -79,7 +79,7 @@ index fda8768..9d28cab 100644
          \qmlproperty bool Video::seekable
  
          This property holds whether the playback position of the video can be
-@@ -413,6 +442,20 @@ Item {
+@@ -413,4 +442,18 @@ Item {
          player.seek(offset);
      }
  
@@ -98,8 +98,6 @@ index fda8768..9d28cab 100644
 +    }
 +
  }
- 
- // ***************************************
 diff --git a/src/imports/multimedia/plugins.qmltypes b/src/imports/multimedia/plugins.qmltypes
 index d01c988..11d423f 100644
 --- a/src/imports/multimedia/plugins.qmltypes
