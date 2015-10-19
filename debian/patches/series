@@ -1,6 +1,7 @@
 rpath_nonlinux.diff
 skip_failing_tests.patch
-qgstreamercapturesession_avoid_race_eos.patch
+
+# Backported patches
 Added-new-playlist-QML-type.patch
 Add-audio-role-API-to-QMediaPlayer.patch
 Sync-the-state-of-the-old-QMediaPlaylistControl-inst.patch
