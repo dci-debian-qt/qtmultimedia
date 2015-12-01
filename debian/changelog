@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.5.1-1ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.5.1-1ubuntu1) xenial; urgency=medium
 
   * New upstream release.
   * Update symbols.
@@ -16,7 +16,7 @@ qtmultimedia-opensource-src (5.5.1-1ubuntu1) UNRELEASED; urgency=medium
   * Regenerate headers for the audio role API
   * Drop upstreamed patch qgstreamercapturesession_avoid_race_eos.patch
 
- -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 17 Jul 2015 13:14:07 +0000
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 01 Dec 2015 08:59:13 +0000
 
 qtmultimedia-opensource-src (5.5.1-1) experimental; urgency=medium
 
