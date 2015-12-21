@@ -1,0 +1,84 @@
+From 8dddfe3f43606b385f48e8142c8ecb70d6c103a3 Mon Sep 17 00:00:00 2001
+From: Jim Hodapp <jim.hodapp@canonical.com>
+Date: Wed, 25 Nov 2015 16:06:07 -0500
+Subject: [PATCH] Added insertItems and removeItems to QML Playlist.
+
+Change-Id: Iba4d08551016c486e88e738e35fb590d82a058a2
+Reviewed-by: Yoann Lopes <yoann.lopes@theqtcompany.com>
+---
+ src/imports/multimedia/qdeclarativeplaylist.cpp | 37 +++++++++++++++++++++++++
+ src/imports/multimedia/qdeclarativeplaylist_p.h |  2 ++
+ 2 files changed, 39 insertions(+)
+
+diff --git a/src/imports/multimedia/qdeclarativeplaylist.cpp b/src/imports/multimedia/qdeclarativeplaylist.cpp
+index c6ea1bd..3432bf2 100644
+--- a/src/imports/multimedia/qdeclarativeplaylist.cpp
++++ b/src/imports/multimedia/qdeclarativeplaylist.cpp
+@@ -456,6 +456,29 @@ bool QDeclarativePlaylist::insertItem(int index, const QUrl &source)
+ }
+ 
+ /*!
++    \qmlmethod bool QtMultimedia::Playlist::insertItems(index, sources)
++
++    Inserts the list of URLs in \a sources to the playlist at the given \a index.
++
++    Returns true if the \a sources are added successfully.
++
++    \since 5.7
++*/
++bool QDeclarativePlaylist::insertItems(int index, const QList<QUrl> &sources)
++{
++    if (sources.empty())
++        return false;
++
++    QList<QMediaContent> contents;
++    QList<QUrl>::const_iterator it = sources.constBegin();
++    while (it != sources.constEnd()) {
++        contents.push_back(QMediaContent(*it));
++        ++it;
++    }
++    return m_playlist->insertMedia(index, contents);
++}
++
++/*!
+     \qmlmethod bool QtMultimedia::Playlist::removeItem(index)
+ 
+     Removed the item at the given \a index from the playlist.
+@@ -468,6 +491,20 @@ bool QDeclarativePlaylist::removeItem(int index)
+ }
+ 
+ /*!
++    \qmlmethod bool QtMultimedia::Playlist::removeItems(int start, int end)
++
++    Removes items in the playlist from \a start to \end inclusive.
++
++    Returns true if the items are removed successfully.
++
++    \since 5.7
++*/
++bool QDeclarativePlaylist::removeItems(int start, int end)
++{
++    return m_playlist->removeMedia(start, end);
++}
++
++/*!
+     \qmlmethod bool QtMultimedia::Playlist::clear()
+ 
+     Removes all the items from the playlist.
+diff --git a/src/imports/multimedia/qdeclarativeplaylist_p.h b/src/imports/multimedia/qdeclarativeplaylist_p.h
+index 2c6d015..295cbb1 100644
+--- a/src/imports/multimedia/qdeclarativeplaylist_p.h
++++ b/src/imports/multimedia/qdeclarativeplaylist_p.h
+@@ -154,7 +154,9 @@ public Q_SLOTS:
+     bool addItem(const QUrl &source);
+     bool addItems(const QList<QUrl> &sources);
+     bool insertItem(int index, const QUrl &source);
++    bool insertItems(int index, const QList<QUrl> &sources);
+     bool removeItem(int index);
++    bool removeItems(int start, int end);
+     bool clear();
+ 
+ Q_SIGNALS:
+-- 
+2.6.4
+

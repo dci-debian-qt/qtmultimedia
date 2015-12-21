@@ -1,0 +1,55 @@
+Author: Jim Hodapp <jim.hodapp@canonical.com>
+Description: Temporary hacks for vivid compatibility.
+ These are changes from upstream that should be dropped at earliest 
+ opportunity, but dropping needs syncing with vivid and application 
+ landings.
+Last-Update: 2015-12-21
+Forwarded: no
+
+diff -urN qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio_p.h 2/qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio_p.h
+--- qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio_p.h	2015-12-21 07:45:37.000000000 +0000
++++ qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio_p.h	2015-12-21 07:18:08.000000000 +0000
+@@ -68,7 +68,7 @@
+ {
+     Q_OBJECT
+     Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged)
+-    Q_PROPERTY(QDeclarativePlaylist *playlist READ playlist WRITE setPlaylist NOTIFY playlistChanged REVISION 1)
++    Q_PROPERTY(QDeclarativePlaylist *playlist READ playlist WRITE setPlaylist NOTIFY playlistChanged)
+     Q_PROPERTY(int loops READ loopCount WRITE setLoopCount NOTIFY loopCountChanged)
+     Q_PROPERTY(PlaybackState playbackState READ playbackState NOTIFY playbackStateChanged)
+     Q_PROPERTY(bool autoPlay READ autoPlay WRITE setAutoPlay NOTIFY autoPlayChanged)
+diff -urN qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeplaylist.cpp 2/qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeplaylist.cpp
+--- qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeplaylist.cpp	2015-12-21 07:45:37.000000000 +0000
++++ qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeplaylist.cpp	2015-12-21 07:18:08.000000000 +0000
+@@ -423,8 +423,6 @@
+     Appends the list of URLs in \a sources to the playlist.
+ 
+     Returns true if the \a sources are added successfully.
+-
+-    \since 5.7
+ */
+ bool QDeclarativePlaylist::addItems(const QList<QUrl> &sources)
+ {
+diff -urN qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylist.cpp 2/qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylist.cpp
+--- qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylist.cpp	2015-12-21 07:45:37.000000000 +0000
++++ qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylist.cpp	2015-12-21 07:18:08.000000000 +0000
+@@ -389,8 +389,6 @@
+   Move the item from position \a from to position \a to.
+ 
+   Returns true if the operation is successful, otherwise false.
+-
+-  \since 5.7
+ */
+ bool QMediaPlaylist::moveMedia(int from, int to)
+ {
+diff -urN qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylistprovider.cpp 2/qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylistprovider.cpp
+--- qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylistprovider.cpp	2015-12-21 07:45:37.000000000 +0000
++++ qtmultimedia-opensource-src-5.5.1/src/multimedia/playback/qmediaplaylistprovider.cpp	2015-12-21 07:18:08.000000000 +0000
+@@ -208,7 +208,6 @@
+ 
+   Returns true if the operation is successful, otherwise false.
+ 
+-  \since 5.7
+ */
+ bool QMediaPlaylistProvider::moveMedia(int from, int to)
+ {

@@ -1,8 +1,19 @@
 qtmultimedia-opensource-src (5.5.1-1ubuntu2) UNRELEASED; urgency=medium
 
-  * 
+  [ Timo Jyrinki ]
+  * More patches from upstream to the playlist:
+    - debian/patches/Change-the-way-a-playlist-is-bound-to-a-media-object.patch
+      (replaces earlier abandoned Sync-the-state... patch)
+    - debian/patches/Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
+    - debian/patches/Added-insertItems-and-removeItems-to-QML-Playlist.patch
+    - debian/patches/Add-moveItem-from-to-to-QMediaPlaylist.patch
 
- -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 18 Dec 2015 12:02:26 +0000
+  [ Jim Hodapp ]
+  * Related changes for compatibility reasons:
+    - debian/patches/backport_adjustments.patch
+    - debian/patches/temporary_vivid_compatibility_hack.patch
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 21 Dec 2015 08:59:42 +0000
 
 qtmultimedia-opensource-src (5.5.1-1ubuntu1) xenial; urgency=medium
 

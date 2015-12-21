@@ -4,4 +4,11 @@ skip_failing_tests.patch
 # Backported patches
 Added-new-playlist-QML-type.patch
 Add-audio-role-API-to-QMediaPlayer.patch
-Sync-the-state-of-the-old-QMediaPlaylistControl-inst.patch
+Change-the-way-a-playlist-is-bound-to-a-media-object.patch
+Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
+Added-insertItems-and-removeItems-to-QML-Playlist.patch
+Add-moveItem-from-to-to-QMediaPlaylist.patch
+
+# Ubuntu patches
+backport_adjustments.patch
+temporary_vivid_compatibility_hack.patch
