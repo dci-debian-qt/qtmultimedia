@@ -9,14 +9,6 @@ Forwarded: no
 diff -urN qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio.cpp 2/qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio.cpp
 --- qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio.cpp	2015-12-21 07:20:31.000000000 +0000
 +++ qtmultimedia-opensource-src-5.5.1/src/imports/multimedia/qdeclarativeaudio.cpp	2015-12-21 07:18:08.000000000 +0000
-@@ -290,6 +290,7 @@
-         emit playlistChanged();
-     }
- 
-+    m_playlist = NULL;
-     m_source = url;
-     m_content = m_source.isEmpty() ? QMediaContent() : m_source;
-     m_loaded = false;
 @@ -556,6 +557,8 @@
      This property holds the playlist used by the media player.
  
