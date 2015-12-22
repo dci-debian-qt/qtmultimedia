@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.5.1-1ubuntu2) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.5.1-1ubuntu2) xenial; urgency=medium
 
   [ Timo Jyrinki ]
   * More patches from upstream to the playlist:
@@ -12,7 +12,7 @@ qtmultimedia-opensource-src (5.5.1-1ubuntu2) UNRELEASED; urgency=medium
   * Related changes for compatibility reasons:
     - debian/patches/backport_adjustments.patch
 
- -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 21 Dec 2015 08:59:42 +0000
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 22 Dec 2015 13:57:22 +0000
 
 qtmultimedia-opensource-src (5.5.1-1ubuntu1) xenial; urgency=medium
 
