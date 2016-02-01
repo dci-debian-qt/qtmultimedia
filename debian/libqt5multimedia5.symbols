@@ -1,5 +1,16 @@
-# SymbolsHelper-Confirmed: 5.5.1 amd64 arm64 armhf i386 powerpc ppc64el
+# SymbolsHelper-Confirmed: 5.6.0~beta amd64 arm64 armhf i386 powerpc ppc64el s390x
 libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
+ Qt_5.0@Qt_5.0 5.6.0~beta
+ Qt_5.1@Qt_5.1 5.6.0~beta
+ Qt_5.2@Qt_5.2 5.6.0~beta
+ Qt_5.3@Qt_5.3 5.6.0~beta
+ Qt_5.4@Qt_5.4 5.6.0~beta
+ Qt_5.5@Qt_5.5 5.6.0~beta
+ Qt_5.6@Qt_5.6 5.6.0~beta
+ Qt_5@Qt_5 5.6.0~beta
+ Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 5.6.0~beta
+ _Z19qt_real_to_fractiondPiS_@Qt_5 5.6.0~beta
+ _Z22qt_imageFromVideoFrameRK11QVideoFrame@Qt_5 5.6.0~beta
  _ZN10QRadioData11qt_metacallEN11QMetaObject4CallEiPPv@Qt_5 5.0.2
  _ZN10QRadioData11qt_metacastEPKc@Qt_5 5.0.2
  _ZN10QRadioData14setMediaObjectEP12QMediaObject@Qt_5 5.0.2
@@ -483,7 +494,6 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN14QMediaPlaylist11removeMediaEii@Qt_5 5.0.2
  _ZN14QMediaPlaylist12mediaChangedEii@Qt_5 5.0.2
  _ZN14QMediaPlaylist12mediaRemovedEii@Qt_5 5.0.2
- (optional)_ZN14QMediaPlaylist12syncControlsEP21QMediaPlaylistControlS1_@Base 5.5.1
  _ZN14QMediaPlaylist13mediaInsertedEii@Qt_5 5.0.2
  _ZN14QMediaPlaylist14setMediaObjectEP12QMediaObject@Qt_5 5.0.2
  _ZN14QMediaPlaylist15setCurrentIndexEi@Qt_5 5.0.2
@@ -506,6 +516,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN14QMediaPlaylist8addMediaERK13QMediaContent@Qt_5 5.0.2
  _ZN14QMediaPlaylist8addMediaERK5QListI13QMediaContentE@Qt_5 5.0.2
  _ZN14QMediaPlaylist8previousEv@Qt_5 5.0.2
+ _ZN14QMediaPlaylist9moveMediaEii@Qt_5 5.6.0~beta
  _ZN14QMediaPlaylistC1EP7QObject@Qt_5 5.0.2
  _ZN14QMediaPlaylistC2EP7QObject@Qt_5 5.0.2
  _ZN14QMediaPlaylistD0Ev@Qt_5 5.0.2
@@ -1110,6 +1121,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN22QMediaPlaylistProvider7shuffleEv@Qt_5_PRIVATE_API 5.0.2 1
  _ZN22QMediaPlaylistProvider8addMediaERK13QMediaContent@Qt_5_PRIVATE_API 5.0.2 1
  _ZN22QMediaPlaylistProvider8addMediaERK5QListI13QMediaContentE@Qt_5_PRIVATE_API 5.0.2 1
+ _ZN22QMediaPlaylistProvider9moveMediaEii@Qt_5_PRIVATE_API 5.6.0~beta
  _ZN22QMediaPlaylistProviderC1EP7QObject@Qt_5_PRIVATE_API 5.0.2 1
  _ZN22QMediaPlaylistProviderC1ER29QMediaPlaylistProviderPrivateP7QObject@Qt_5_PRIVATE_API 5.0.2 1
  _ZN22QMediaPlaylistProviderC2EP7QObject@Qt_5_PRIVATE_API 5.0.2 1
@@ -1352,6 +1364,7 @@ libQt5Multimedia.so.5 libqt5multimedia5 #MINVER#
  _ZN29QMediaNetworkPlaylistProvider7shuffleEv@Qt_5_PRIVATE_API 5.0.2 1
  _ZN29QMediaNetworkPlaylistProvider8addMediaERK13QMediaContent@Qt_5_PRIVATE_API 5.0.2 1
  _ZN29QMediaNetworkPlaylistProvider8addMediaERK5QListI13QMediaContentE@Qt_5_PRIVATE_API 5.0.2 1
+ _ZN29QMediaNetworkPlaylistProvider9moveMediaEii@Qt_5_PRIVATE_API 5.6.0~beta
  _ZN29QMediaNetworkPlaylistProviderC1EP7QObject@Qt_5_PRIVATE_API 5.0.2 1
  _ZN29QMediaNetworkPlaylistProviderC2EP7QObject@Qt_5_PRIVATE_API 5.0.2 1
  _ZN29QMediaNetworkPlaylistProviderD0Ev@Qt_5_PRIVATE_API 5.0.2 1
