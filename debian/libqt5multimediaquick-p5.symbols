@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.6.0~beta amd64 arm64 armhf i386 powerpc ppc64el s390x
+# SymbolsHelper-Confirmed: 5.6.0 amd64 arm64 armhf i386 powerpc ppc64el s390x
 libQt5MultimediaQuick_p.so.5 libqt5multimediaquick-p5 #MINVER#
  Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 5.6.0~beta
  _ZN12QSGVideoNode23setTexturedRectGeometryERK6QRectFS2_i@Qt_5_PRIVATE_API 5.0.2 1
@@ -41,6 +41,9 @@ libQt5MultimediaQuick_p.so.5 libqt5multimediaquick-p5 #MINVER#
  _ZN25QSGVideoNodeFactoryPlugin11qt_metacallEN11QMetaObject4CallEiPPv@Qt_5_PRIVATE_API 5.2.0 1
  _ZN25QSGVideoNodeFactoryPlugin11qt_metacastEPKc@Qt_5_PRIVATE_API 5.2.0 1
  _ZN25QSGVideoNodeFactoryPlugin16staticMetaObjectE@Qt_5_PRIVATE_API 5.2.0 1
+ _ZN28QSGVideoNodeFactoryInterfaceD0Ev@Qt_5_PRIVATE_API 5.6.0
+ _ZN28QSGVideoNodeFactoryInterfaceD1Ev@Qt_5_PRIVATE_API 5.6.0
+ _ZN28QSGVideoNodeFactoryInterfaceD2Ev@Qt_5_PRIVATE_API 5.6.0
  _ZNK23QDeclarativeVideoOutput10metaObjectEv@Qt_5_PRIVATE_API 5.3.0 1
  _ZNK23QDeclarativeVideoOutput10sourceRectEv@Qt_5_PRIVATE_API 5.3.0 1
  _ZNK23QDeclarativeVideoOutput10sourceTypeEv@Qt_5_PRIVATE_API 5.3.0 1
@@ -71,4 +74,5 @@ libQt5MultimediaQuick_p.so.5 libqt5multimediaquick-p5 #MINVER#
  _ZTV23QDeclarativeVideoOutput@Qt_5_PRIVATE_API 5.3.0 1
  _ZTV24QDeclarativeVideoBackend@Qt_5_PRIVATE_API 5.3.0 1
  _ZTV25QSGVideoNodeFactoryPlugin@Qt_5_PRIVATE_API 5.2.0 1
+ _ZTV28QSGVideoNodeFactoryInterface@Qt_5_PRIVATE_API 5.6.0
  (c++)"non-virtual thunk to QDeclarativeVideoOutput::~QDeclarativeVideoOutput()@Qt_5_PRIVATE_API" 5.3.0 1
