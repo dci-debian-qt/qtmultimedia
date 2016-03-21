@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.6.0~beta-1ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.6.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Drop patches merged upstream:
@@ -9,6 +9,26 @@ qtmultimedia-opensource-src (5.6.0~beta-1ubuntu1) UNRELEASED; urgency=medium
   * Update symbols.
 
  -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Thu, 28 Jan 2016 10:28:53 +0000
+
+qtmultimedia-opensource-src (5.6.0~rc-2) experimental; urgency=medium
+
+  * Bump Qt build dependencies.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 09 Mar 2016 23:54:30 -0300
+
+qtmultimedia-opensource-src (5.6.0~rc-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+  * Merge 5.5.1-4 upload from unstable.
+  * Update debian/libqgsttools-p1.symbols from buildds’ logs.
+  * Stop marking private symbols (we no longer need explicit marks).
+  * Use recommended https URIs for Vcs fields.
+  * Drop fix_alsa_detection.patch, a different version applied upstream.
+  * Update symbols files from the current build log.
+  * Bump Standards-Version to 3.9.7, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 06 Mar 2016 22:46:46 +0300
 
 qtmultimedia-opensource-src (5.6.0~beta-1) experimental; urgency=medium
 

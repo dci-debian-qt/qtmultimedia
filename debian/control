@@ -13,22 +13,22 @@ Build-Depends: debhelper (>= 9.0.0),
                libgstreamer-plugins-base1.0-dev,
                libgstreamer1.0-dev,
                libpulse-dev,
-               libqt5opengl5-dev (>= 5.6.0~beta+dfsg~),
+               libqt5opengl5-dev (>= 5.6.0+dfsg~),
                pkg-kde-tools,
                qml-module-qtquick2,
                qml-module-qttest,
-               qtbase5-dev (>= 5.6.0~beta+dfsg~),
-               qtbase5-private-dev (>= 5.6.0~beta+dfsg~),
-               qtdeclarative5-private-dev (>= 5.6.0~beta~),
+               qtbase5-dev (>= 5.6.0+dfsg~),
+               qtbase5-private-dev (>= 5.6.0+dfsg~),
+               qtdeclarative5-private-dev (>= 5.6.0~),
                xvfb,
                zlib1g-dev
-Build-Depends-Indep: libqt5sql5-sqlite (>= 5.6.0~beta+dfsg~),
-                     qtbase5-doc-html (>= 5.6.0~beta+dfsg~),
+Build-Depends-Indep: libqt5sql5-sqlite (>= 5.6.0+dfsg~),
+                     qtbase5-doc-html (>= 5.6.0+dfsg~),
                      qttools5-dev-tools (>= 5.6.0~)
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: https://qt-project.org/
-Vcs-Git: git://anonscm.debian.org/pkg-kde/qt/qtmultimedia.git
-Vcs-Browser: http://anonscm.debian.org/cgit/pkg-kde/qt/qtmultimedia.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qtmultimedia.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/qt/qtmultimedia.git
 
 Package: libqt5multimedia5
 Architecture: any

@@ -1,4 +1,3 @@
-fix_alsa_detection.patch
 rpath_nonlinux.diff
 skip_failing_tests.patch
 
