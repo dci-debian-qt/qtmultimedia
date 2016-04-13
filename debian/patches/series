@@ -9,6 +9,7 @@ Change-the-way-a-playlist-is-bound-to-a-media-object.patch
 Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
 Added-insertItems-and-removeItems-to-QML-Playlist.patch
 Add-moveItem-from-to-to-QMediaPlaylist.patch
+PulseAudio-change-the-way-volume-is-applied.patch
 
 # Ubuntu patches
 backport_adjustments.patch
