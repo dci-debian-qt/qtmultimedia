@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.5.1-4ubuntu4) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.5.1-4ubuntu4~1) yakkety; urgency=medium
 
   * Add qtmultimedia5-dev.install-arm64 similar to armhf.
 
