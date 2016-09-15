@@ -1,8 +1,71 @@
-qtmultimedia-opensource-src (5.5.1-4ubuntu4~1) yakkety; urgency=medium
+qtmultimedia-opensource-src (5.6.1-2ubuntu1~1) yakkety; urgency=medium
 
-  * Add qtmultimedia5-dev.install-arm64 similar to armhf.
+  * New upstream release.
+  * Drop patches merged upstream:
+    - Added-new-playlist-QML-type.patch
+    - Add-audio-role-API-to-QMediaPlayer.patch
+    - Change-the-way-a-playlist-is-bound-to-a-media-object.patch
+  * Drop unneeded Ubuntu specific patch.
+  * Update symbols.
+  * debian/patches/PulseAudio-change-the-way-volume-is-applied.patch:
+    - Use upstream version instead of the backported to 5.5 version.
+  * Drop the Pulseaudio patch, now included in 5.6.1.
 
- -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 23 May 2016 06:44:48 +0000
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Thu, 28 Jan 2016 10:28:53 +0000
+
+qtmultimedia-opensource-src (5.6.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 13 Jun 2016 10:46:10 -0300
+
+qtmultimedia-opensource-src (5.6.1-1) experimental; urgency=medium
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * New upstream release.
+    - Bump Qt build dependencies.
+  * Bump Standards-Version to 3.9.8, no changes required.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 10 Jun 2016 21:49:43 -0300
+
+qtmultimedia-opensource-src (5.6.0-1) experimental; urgency=medium
+
+  * New upstream release.
+    - Bump Qt build dependencies.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Thu, 31 Mar 2016 19:41:16 -0300
+
+qtmultimedia-opensource-src (5.6.0~rc-2) experimental; urgency=medium
+
+  * Bump Qt build dependencies.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Wed, 09 Mar 2016 23:54:30 -0300
+
+qtmultimedia-opensource-src (5.6.0~rc-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+  * Merge 5.5.1-4 upload from unstable.
+  * Update debian/libqgsttools-p1.symbols from buildds’ logs.
+  * Stop marking private symbols (we no longer need explicit marks).
+  * Use recommended https URIs for Vcs fields.
+  * Drop fix_alsa_detection.patch, a different version applied upstream.
+  * Update symbols files from the current build log.
+  * Bump Standards-Version to 3.9.7, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 06 Mar 2016 22:46:46 +0300
+
+qtmultimedia-opensource-src (5.6.0~beta-1) experimental; urgency=medium
+
+  * New upstream beta release.
+    - Bump Qt build dependencies.
+  * Update and sort install files.
+  * Update symbols files using migrate-symbols.py script and bumping minimum
+    version to 5.6.0~beta.
+  * Update and simplify debian/copyright.
+  * Update symbols files using current build log.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sat, 16 Jan 2016 23:54:26 -0300
 
 qtmultimedia-opensource-src (5.5.1-4ubuntu3) xenial; urgency=medium
 
@@ -43,6 +106,12 @@ qtmultimedia-opensource-src (5.5.1-2) experimental; urgency=medium
   * Update symbols files with buildds' logs.
 
  -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 19 Oct 2015 11:39:50 -0300
+
+qtmultimedia-opensource-src (5.5.1-4ubuntu4~1) yakkety; urgency=medium
+
+  * Add qtmultimedia5-dev.install-arm64 similar to armhf.
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 23 May 2016 06:44:48 +0000
 
 qtmultimedia-opensource-src (5.5.1-1ubuntu2) xenial; urgency=medium
 
