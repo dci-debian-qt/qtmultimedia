@@ -1,3 +1,13 @@
+qtmultimedia-opensource-src (5.7.0-1ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * Drop upstreamed patches:
+    - Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
+    - Added-insertItems-and-removeItems-to-QML-Playlist.patch
+    - Add-moveItem-from-to-to-QMediaPlaylist.patch
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Thu, 15 Sep 2016 12:23:57 +0000
+
 qtmultimedia-opensource-src (5.7.0-1) experimental; urgency=medium
 
   * New upstream release.

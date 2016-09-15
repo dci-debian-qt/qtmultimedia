@@ -2,6 +2,3 @@ rpath_nonlinux.diff
 skip_failing_tests.patch
 
 # Backported patches
-Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
-Added-insertItems-and-removeItems-to-QML-Playlist.patch
-Add-moveItem-from-to-to-QMediaPlaylist.patch
