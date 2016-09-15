@@ -1,3 +1,17 @@
+qtmultimedia-opensource-src (5.7.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Refresh debian/patches/rpath_nonlinux.diff.
+  * Update debian/copyright.
+  * Bump Qt build-dependencies to 5.7.0.
+  * Drop obsolete Breaks/Replaces.
+  * Switch to automatic dbgsym packages.
+  * Clean up unused code in debian/rules.
+  * Define DEB_HOST_ARCH properly in debian/rules.
+  * Update the symbols files.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 17 Aug 2016 20:34:38 +0300
+
 qtmultimedia-opensource-src (5.6.1-2ubuntu1~1) yakkety; urgency=medium
 
   * New upstream release.
