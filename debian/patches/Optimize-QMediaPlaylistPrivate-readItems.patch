@@ -1,0 +1,38 @@
+From 6817067ff72c4493ab39fd065c9382568da06378 Mon Sep 17 00:00:00 2001
+From: Yoann Lopes <yoann.lopes@qt.io>
+Date: Thu, 18 Aug 2016 14:18:59 +0200
+Subject: [PATCH] Optimize QMediaPlaylistPrivate::readItems()
+
+When reading playlist items from a file, pass them to the playlist
+backend all at once rather than one by one. This might be faster
+depending on the implementation.
+
+Task-number: QTBUG-54849
+Change-Id: I57acdc68604ee56fe5d7615ba0a72655e668443f
+Reviewed-by: Christian Stromme <christian.stromme@qt.io>
+---
+ src/multimedia/playback/qmediaplaylist.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/multimedia/playback/qmediaplaylist.cpp b/src/multimedia/playback/qmediaplaylist.cpp
+index c633406..7246d2a 100644
+--- a/src/multimedia/playback/qmediaplaylist.cpp
++++ b/src/multimedia/playback/qmediaplaylist.cpp
+@@ -428,10 +428,12 @@ bool QMediaPlaylist::clear()
+ 
+ bool QMediaPlaylistPrivate::readItems(QMediaPlaylistReader *reader)
+ {
++    QList<QMediaContent> items;
++
+     while (!reader->atEnd())
+-        playlist()->addMedia(reader->readItem());
++        items.append(reader->readItem());
+ 
+-    return true;
++    return playlist()->addMedia(items);
+ }
+ 
+ bool QMediaPlaylistPrivate::writeItems(QMediaPlaylistWriter *writer)
+-- 
+2.9.3
+
