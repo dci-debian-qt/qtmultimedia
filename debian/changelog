@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.7.0-1ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.7.1~20161021-2ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Drop upstreamed patches:
@@ -7,6 +7,21 @@ qtmultimedia-opensource-src (5.7.0-1ubuntu1) UNRELEASED; urgency=medium
     - Add-moveItem-from-to-to-QMediaPlaylist.patch
 
  -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Thu, 15 Sep 2016 12:23:57 +0000
+
+qtmultimedia-opensource-src (5.7.1~20161021-2) unstable; urgency=medium
+
+  * Release to unstable.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Tue, 01 Nov 2016 10:45:59 -0300
+
+qtmultimedia-opensource-src (5.7.1~20161021-1) experimental; urgency=medium
+
+  * New upstream snapshot.
+    - Bump Qt build dependencies.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Tue, 25 Oct 2016 20:12:16 -0300
 
 qtmultimedia-opensource-src (5.7.0-1) experimental; urgency=medium
 
