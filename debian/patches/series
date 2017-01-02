@@ -6,3 +6,4 @@ Added-addItems-to-QML-Playlist-for-batch-adding-of-t.patch
 Added-insertItems-and-removeItems-to-QML-Playlist.patch
 Add-moveItem-from-to-to-QMediaPlaylist.patch
 Optimize-QMediaPlaylistPrivate-readItems.patch
+adding_gstreamer_opus_support.patch
