@@ -2,3 +2,6 @@ rpath_nonlinux.diff
 skip_failing_tests.patch
 
 # Backported patches
+
+# Ubuntu patches
+adding_gstreamer_opus_support.patch # to be replaced by upstream 5.9 solution
