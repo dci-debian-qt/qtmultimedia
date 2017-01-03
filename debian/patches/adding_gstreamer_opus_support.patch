@@ -33,5 +33,5 @@ Reviewed-By: Alfonso Sanchez-Beato <alfonso.sanchez-beato@canonical.com>
      m_codecOptions["audio/AMR-WB"] = QStringList();
 +    m_codecOptions["audio/x-opus"] = QStringList();
  
-     foreach( const QByteArray& codecName, codecCandidates ) {
+     for (const QByteArray& codecName : qAsConst(codecCandidates)) {
          QByteArray elementName = m_elementNames[codecName];
