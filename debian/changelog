@@ -1,8 +1,31 @@
-qtmultimedia-opensource-src (5.7.0-0neon) xenial; urgency=medium
+qtmultimedia-opensource-src (5.7.1~20161021-2) unstable; urgency=medium
 
-  * New release
+  * Release to unstable.
+  * Update symbols files with buildds' logs.
 
- -- Neon CI <neon@kde.org>  Mon, 27 Jun 2016 15:04:28 +0200
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Tue, 01 Nov 2016 10:45:59 -0300
+
+qtmultimedia-opensource-src (5.7.1~20161021-1) experimental; urgency=medium
+
+  * New upstream snapshot.
+    - Bump Qt build dependencies.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Tue, 25 Oct 2016 20:12:16 -0300
+
+qtmultimedia-opensource-src (5.7.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Refresh debian/patches/rpath_nonlinux.diff.
+  * Update debian/copyright.
+  * Bump Qt build-dependencies to 5.7.0.
+  * Drop obsolete Breaks/Replaces.
+  * Switch to automatic dbgsym packages.
+  * Clean up unused code in debian/rules.
+  * Define DEB_HOST_ARCH properly in debian/rules.
+  * Update the symbols files.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 17 Aug 2016 20:34:38 +0300
 
 qtmultimedia-opensource-src (5.6.1-2) unstable; urgency=medium
 
