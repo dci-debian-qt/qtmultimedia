@@ -1,8 +1,15 @@
-qtmultimedia-opensource-src (5.7.1-0neon) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.9.0~rc-1) experimental; urgency=medium
 
-  * neon build
+  * Team upload.
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 25 Jan 2017 14:36:53 +0000
+  [ Simon Quigley ]
+  * New upstream release.
+  * Update symbols from build logs.
+
+  [ Dmitry Shachnev ]
+  * Remove an obsolete entry from debian/copyright.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 28 May 2017 03:09:24 -0500
 
 qtmultimedia-opensource-src (5.7.1~20161021-2) unstable; urgency=medium
 
