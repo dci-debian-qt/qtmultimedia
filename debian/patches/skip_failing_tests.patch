@@ -5,10 +5,9 @@ Bug: https://bugreports.qt-project.org/browse/QTBUG-35420
 Bug-Ubuntu: https://launchpad.net/bugs/1261384
 Author: Omer Akram <om26er@ubuntu.com>
 
-=== modified file 'tests/auto/unit/qmediaplaylist/tst_qmediaplaylist.cpp'
---- a/tests/auto/unit/qmediaplaylist/tst_qmediaplaylist.cpp	2013-09-20 19:21:01 +0000
-+++ b/tests/auto/unit/qmediaplaylist/tst_qmediaplaylist.cpp	2013-12-05 16:30:52 +0000
-@@ -341,6 +341,7 @@
+--- a/tests/auto/unit/qmediaplaylist/tst_qmediaplaylist.cpp
++++ b/tests/auto/unit/qmediaplaylist/tst_qmediaplaylist.cpp
+@@ -447,6 +447,7 @@
  
  void tst_QMediaPlaylist::saveAndLoad()
  {
@@ -16,7 +15,7 @@ Author: Omer Akram <om26er@ubuntu.com>
      QMediaPlaylist playlist;
      playlist.addMedia(content1);
      playlist.addMedia(content2);
-@@ -649,6 +650,7 @@
+@@ -1101,6 +1102,7 @@
  
  void tst_QMediaPlaylist::testLoaded_signal()
  {
@@ -24,11 +23,9 @@ Author: Omer Akram <om26er@ubuntu.com>
      //create an instance of QMediaPlaylist class.
      QMediaPlaylist playlist;
      playlist.addMedia(content1); //set the media to playlist
-
-=== modified file 'tests/auto/unit/multimedia.pro'
---- a/tests/auto/unit/multimedia.pro	2013-05-23 19:47:12 +0000
-+++ b/tests/auto/unit/multimedia.pro	2013-12-12 19:46:46 +0000
-@@ -13,7 +13,7 @@
+--- a/tests/auto/unit/multimedia.pro
++++ b/tests/auto/unit/multimedia.pro
+@@ -14,13 +14,13 @@
      qmediacontent \
      qmediaobject \
      qmediaplayer \
@@ -37,8 +34,6 @@ Author: Omer Akram <om26er@ubuntu.com>
      qmediaplaylistnavigator \
      qmediapluginloader \
      qmediarecorder \
-@@ -19,7 +19,7 @@
-     qmediarecorder \
      qmediaresource \
      qmediaservice \
 -    qmediaserviceprovider \
@@ -46,9 +41,8 @@ Author: Omer Akram <om26er@ubuntu.com>
      qmediatimerange \
      qmetadatareadercontrol \
      qmetadatawritercontrol \
-=== modified file 'tests/auto/unit/unit.pro'
---- a/tests/auto/unit/unit.pro    2015-06-29 20:05:38.000000000 +0000
-+++ b/tests/auto/unit/unit.pro    2015-10-13 12:18:36.808963658 +0000
+--- a/tests/auto/unit/unit.pro
++++ b/tests/auto/unit/unit.pro
 @@ -2,4 +2,5 @@
  
  SUBDIRS += multimedia.pro
@@ -56,4 +50,3 @@ Author: Omer Akram <om26er@ubuntu.com>
 -qtHaveModule(qml): SUBDIRS += multimediaqml.pro
 +# Does not find the multimedia module despite paths being set
 +#qtHaveModule(qml): SUBDIRS += multimediaqml.pro
-
