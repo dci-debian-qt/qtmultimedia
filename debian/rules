@@ -20,8 +20,6 @@ pkgs_with_arch = $(patsubst debian/%.install-$(DEB_HOST_ARCH),%,$(wildcard debia
 	dh $@ --parallel --with pkgkde_symbolshelper
 
 override_dh_auto_configure:
-	# Regenerate headers for the upstream audio role patch backport
-	mkdir .git
 	qmake
 
 override_dh_auto_build-indep:
