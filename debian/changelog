@@ -7,6 +7,8 @@ qtmultimedia-opensource-src (5.9.0-2ubuntu1) UNRELEASED; urgency=medium
     - Install Qt5Quick_QSGVideoNodeFactory_EGL.cmake on arm64.
   * Dropped changes:
     - Support dual -gles packages in debian/libqt5multimediawidgets5.symbols.
+    - The transitional qtdeclarative5-qtmultimedia-plugin package and the
+      related Breaks/Replaces (these were only needed until Ubuntu 16.04).
   * Drop adding_gstreamer_opus_support.patch, upstream now loads the list of
     codecs dynamically (see QTBUG-50567).
 
