@@ -1,3 +1,41 @@
+qtmultimedia-opensource-src (5.9.0-2ubuntu1) UNRELEASED; urgency=medium
+
+  * Merge with Debian experimental, remaining changes:
+    - Build without OpenAL (in universe), so without qml-module-qtaudioengine.
+    - Run the tests during build.
+    - Add skip_failing_tests.patch to disable some failing tests.
+    - Install Qt5Quick_QSGVideoNodeFactory_EGL.cmake on arm64.
+  * Dropped changes:
+    - Support dual -gles packages in debian/libqt5multimediawidgets5.symbols.
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Wed, 21 Jun 2017 16:49:13 +0300
+
+qtmultimedia-opensource-src (5.9.0-2) experimental; urgency=medium
+
+  * Update debian/libqgsttools-p1.symbols from buildds’ logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 17 Jun 2017 13:08:55 +0300
+
+qtmultimedia-opensource-src (5.9.0-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 15 Jun 2017 14:35:41 -0500
+
+qtmultimedia-opensource-src (5.9.0~rc-1) experimental; urgency=medium
+
+  * Team upload.
+
+  [ Simon Quigley ]
+  * New upstream release.
+  * Update symbols from build logs.
+
+  [ Dmitry Shachnev ]
+  * Remove an obsolete entry from debian/copyright.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 28 May 2017 03:09:24 -0500
+
 qtmultimedia-opensource-src (5.7.1~20161021-2ubuntu1~3) zesty; urgency=medium
 
   * New upstream release.
@@ -615,6 +653,28 @@ qtmultimedia-opensource-src (5.2.1-0ubuntu1) trusty; urgency=low
   * Update symbols
 
  -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Fri, 28 Feb 2014 09:03:43 +0000
+
+qtmultimedia-opensource-src (5.2.0-3) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * Simplify qtmultimedia5-examples.install.
+  * Remove the Pre-Depends on dpkg >= 1.15.6~, since that version is available
+    in Squeeze already.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Upload to unstable.
+  * Move mkspec files to their new location.
+    - B-D on qtbase5-private-dev 5.2.0+dfsg-7 which changed the location.
+  * Update symbols files with buildd's logs.
+  * Update Standards-Version to 3.9.5, no changes required.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 31 Jan 2014 20:06:31 -0300
+
+qtmultimedia-opensource-src (5.2.0-2) experimental; urgency=medium
+
+  * Update symbols files with buildd's logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 20 Dec 2013 14:39:45 -0300
 
 qtmultimedia-opensource-src (5.2.0-1) experimental; urgency=low
 
