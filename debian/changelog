@@ -1,9 +1,7 @@
-qtmultimedia-opensource-src (5.9.0-2ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.9.0-3ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with Debian experimental, remaining changes:
     - Build without OpenAL (in universe), so without qml-module-qtaudioengine.
-    - Run the tests during build.
-    - Add skip_failing_tests.patch to disable some failing tests.
     - Install Qt5Quick_QSGVideoNodeFactory_EGL.cmake on arm64.
   * Dropped changes:
     - Support dual -gles packages in debian/libqt5multimediawidgets5.symbols.
@@ -11,8 +9,17 @@ qtmultimedia-opensource-src (5.9.0-2ubuntu1) UNRELEASED; urgency=medium
       related Breaks/Replaces (these were only needed until Ubuntu 16.04).
   * Drop adding_gstreamer_opus_support.patch, upstream now loads the list of
     codecs dynamically (see QTBUG-50567).
+  * Drop skip_failing_tests.patch, the tests pass fine without it.
 
  -- Dmitry Shachnev <mitya57@ubuntu.com>  Wed, 21 Jun 2017 16:49:13 +0300
+
+qtmultimedia-opensource-src (5.9.0-3) experimental; urgency=medium
+
+  * Change qtdeclarative5-private-dev dependency to qtdeclarative5-dev.
+  * Run unit tests during build.
+  * Update symbols files from sparc64 build log.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 22 Jun 2017 19:38:53 +0300
 
 qtmultimedia-opensource-src (5.9.0-2) experimental; urgency=medium
 
