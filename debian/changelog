@@ -1,8 +1,23 @@
-qtmultimedia-opensource-src (5.9.0-0neon) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.9.0-3) experimental; urgency=medium
 
-  * New release
+  * Change qtdeclarative5-private-dev dependency to qtdeclarative5-dev.
+  * Run unit tests during build.
+  * Update symbols files from sparc64 build log.
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 01 Jun 2017 15:58:10 +0100
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 22 Jun 2017 19:38:53 +0300
+
+qtmultimedia-opensource-src (5.9.0-2) experimental; urgency=medium
+
+  * Update debian/libqgsttools-p1.symbols from buildds’ logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 17 Jun 2017 13:08:55 +0300
+
+qtmultimedia-opensource-src (5.9.0-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 15 Jun 2017 14:35:41 -0500
 
 qtmultimedia-opensource-src (5.9.0~rc-1) experimental; urgency=medium
 
