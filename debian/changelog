@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.9.0-3ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.9.1-1ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with Debian experimental, remaining changes:
     - Build without OpenAL (in universe), so without qml-module-qtaudioengine.
@@ -12,6 +12,15 @@ qtmultimedia-opensource-src (5.9.0-3ubuntu1) UNRELEASED; urgency=medium
   * Drop skip_failing_tests.patch, the tests pass fine without it.
 
  -- Dmitry Shachnev <mitya57@ubuntu.com>  Wed, 21 Jun 2017 16:49:13 +0300
+
+qtmultimedia-opensource-src (5.9.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update debian/libqgsttools-p1.symbols from buildds’ logs.
+  * Bump Qt build-dependencies to 5.9.1.
+  * Bump Standards-Version to 4.0.0, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 07 Jul 2017 16:36:14 +0300
 
 qtmultimedia-opensource-src (5.9.0-3) experimental; urgency=medium
 
