@@ -1,12 +1,13 @@
 qtmultimedia-opensource-src (5.9.1-1ubuntu1) UNRELEASED; urgency=medium
 
-  * Merge with Debian experimental, remaining changes:
-    - Build without OpenAL (in universe), so without qml-module-qtaudioengine.
+  * Merge with Debian experimental, remaining change:
     - Install Qt5Quick_QSGVideoNodeFactory_EGL.cmake on arm64.
   * Dropped changes:
     - Support dual -gles packages in debian/libqt5multimediawidgets5.symbols.
     - The transitional qtdeclarative5-qtmultimedia-plugin package and the
       related Breaks/Replaces (these were only needed until Ubuntu 16.04).
+    - Build without OpenAL (in universe), so without qml-module-qtaudioengine
+      (qtmultimedia itself is in universe now).
   * Drop adding_gstreamer_opus_support.patch, upstream now loads the list of
     codecs dynamically (see QTBUG-50567).
   * Drop skip_failing_tests.patch, the tests pass fine without it.

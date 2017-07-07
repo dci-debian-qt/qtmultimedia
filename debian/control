@@ -12,6 +12,7 @@ Build-Depends: debhelper (>= 9.20160114~),
                libasound2-dev [linux-any],
                libgstreamer-plugins-base1.0-dev,
                libgstreamer1.0-dev,
+               libopenal-dev,
                libpulse-dev,
                libqt5opengl5-dev (>= 5.9.1+dfsg~),
                pkg-kde-tools,
@@ -91,6 +92,17 @@ Description: Qt 5 Multimedia QML module
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the Multimedia QML module for QtDeclarative.
+
+Package: qml-module-qtaudioengine
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Qt 5 AudioEngine QML module
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains the AudioEngine QML module for QtDeclarative.
 
 Package: libqgsttools-p1
 Architecture: any
