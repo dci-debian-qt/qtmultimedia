@@ -6,6 +6,11 @@ qtmultimedia-opensource-src (5.9.3-0neon) UNRELEASED; urgency=medium
 
  -- Jonathan Riddell <jr@jriddell.org>  Wed, 22 Nov 2017 17:23:09 +0000
 
+qtmultimedia-opensource-src (5.9.1-3) UNRELEASED; urgency=medium
+
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 29 Aug 2017 13:58:23 +0300
+
 qtmultimedia-opensource-src (5.9.1-2) unstable; urgency=medium
 
   * Update symbols files from the current build logs.
