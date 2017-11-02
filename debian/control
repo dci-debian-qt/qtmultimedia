@@ -8,26 +8,26 @@ Uploaders: Sune Vuorela <debian@pusling.com>,
            Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
            Timo Jyrinki <timo@debian.org>,
            Dmitry Shachnev <mitya57@debian.org>
-Build-Depends: debhelper (>= 9.20160114~),
+Build-Depends: debhelper (>= 10),
                libasound2-dev [linux-any],
                libgstreamer-plugins-base1.0-dev,
                libgstreamer1.0-dev,
                libopenal-dev,
                libpulse-dev,
-               libqt5opengl5-dev (>= 5.9.1+dfsg~),
+               libqt5opengl5-dev (>= 5.9.2+dfsg~),
                pkg-kde-tools,
                qml-module-qtquick2,
                qml-module-qttest,
-               qtbase5-dev (>= 5.9.1+dfsg~),
-               qtbase5-private-dev (>= 5.9.1+dfsg~),
-               qtdeclarative5-dev (>= 5.9.1~),
+               qtbase5-dev (>= 5.9.2+dfsg~),
+               qtbase5-private-dev (>= 5.9.2+dfsg~),
+               qtdeclarative5-dev (>= 5.9.2~),
                xauth,
                xvfb,
                zlib1g-dev
-Build-Depends-Indep: libqt5sql5-sqlite (>= 5.9.1+dfsg~),
-                     qtbase5-doc-html (>= 5.9.1+dfsg~),
-                     qttools5-dev-tools (>= 5.9.1~)
-Standards-Version: 4.0.0
+Build-Depends-Indep: libqt5sql5-sqlite (>= 5.9.2+dfsg~),
+                     qtbase5-doc-html (>= 5.9.2+dfsg~),
+                     qttools5-dev-tools (>= 5.9.2~)
+Standards-Version: 4.1.1
 Homepage: https://qt.io/
 Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qtmultimedia.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/qt/qtmultimedia.git
@@ -137,7 +137,9 @@ Package: qtmultimedia5-dev
 Architecture: any
 Multi-Arch: same
 Section: libdevel
-Depends: libqgsttools-p1 (= ${binary:Version}),
+Depends: libglib2.0-dev,
+         libpulse-dev,
+         libqgsttools-p1 (= ${binary:Version}),
          libqt5multimedia5 (= ${binary:Version}),
          libqt5multimediaquick-p5 (= ${binary:Version}),
          libqt5multimediawidgets5 (= ${binary:Version}),
