@@ -1,4 +1,4 @@
-qtmultimedia-opensource-src (5.9.2-1ubuntu1) UNRELEASED; urgency=medium
+qtmultimedia-opensource-src (5.9.2-1ubuntu1) bionic; urgency=medium
 
   * Merge with Debian experimental, remaining change:
     - Install Qt5Quick_QSGVideoNodeFactory_EGL.cmake on arm64.
