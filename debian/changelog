@@ -1,3 +1,9 @@
+qtmultimedia-opensource-src (5.9.3-0ubuntu3) bionic; urgency=medium
+
+  * Correct last upload by putting the conditional statement in the right spot.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 10 Dec 2017 22:26:30 -0600
+
 qtmultimedia-opensource-src (5.9.3-0ubuntu2) bionic; urgency=medium
 
   * Disable tests on armhf because they're spotty.
