@@ -20,7 +20,11 @@ pkgs_with_arch = $(patsubst debian/%.install-$(DEB_HOST_ARCH),%,$(wildcard debia
 	dh $@ --with pkgkde_symbolshelper
 
 override_dh_auto_configure:
+ifeq ($(DEB_HOST_ARCH), armhf)
+# Don't run the tests on armhf, they're spotty.
+else
 	qmake QT_BUILD_PARTS+=tests
+endif
 
 override_dh_auto_build-indep:
 	dh_auto_build -Smakefile -- docs

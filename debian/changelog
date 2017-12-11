@@ -1,3 +1,9 @@
+qtmultimedia-opensource-src (5.9.3-0ubuntu2) bionic; urgency=medium
+
+  * Disable tests on armhf because they're spotty.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 10 Dec 2017 22:15:25 -0600
+
 qtmultimedia-opensource-src (5.9.3-0ubuntu1) bionic; urgency=medium
 
   * New upstream release.
