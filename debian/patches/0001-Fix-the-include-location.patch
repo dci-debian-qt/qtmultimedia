@@ -1,0 +1,27 @@
+From 08248922a2de9588ff45691cb9d7daad070e7fd5 Mon Sep 17 00:00:00 2001
+From: Bhushan Shah <bhush94@gmail.com>
+Date: Sat, 16 Dec 2017 16:13:32 +0530
+Subject: [PATCH] Fix the include location
+
+---
+ src/multimedia/gsttools_headers/qgstreamervideosinkcontrol_p.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/multimedia/gsttools_headers/qgstreamervideosinkcontrol_p.h b/src/multimedia/gsttools_headers/qgstreamervideosinkcontrol_p.h
+index c23d76ff..ba95c49c 100644
+--- a/src/multimedia/gsttools_headers/qgstreamervideosinkcontrol_p.h
++++ b/src/multimedia/gsttools_headers/qgstreamervideosinkcontrol_p.h
+@@ -42,8 +42,8 @@
+ #ifndef QGSTREAMERVIDEOSINKCONTROL_P_H
+ #define QGSTREAMERVIDEOSINKCONTROL_P_H
+ 
+-#include <private/qgstreamerelementcontrol_p.h>
+-#include <private/qgstreamervideorendererinterface_p.h>
++#include "qgstreamerelementcontrol_p.h"
++#include "qgstreamervideorendererinterface_p.h"
+ 
+ class QGStreamerVideoSinkControl
+         : public QGStreamerElementControl
+-- 
+2.15.1
+
