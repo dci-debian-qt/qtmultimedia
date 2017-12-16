@@ -1,0 +1,30 @@
+From f5dddd129f2dd2aa5cd2630df72885805df81939 Mon Sep 17 00:00:00 2001
+From: Mohammed Sameer <msameer@foolab.org>
+Date: Wed, 24 Jun 2015 04:42:30 +0300
+Subject: [PATCH 11/15] [qtmultimedia] don't play with sink sync property.
+ Contributes to JB#30082
+
+I cannot find a reason why someone would flip sync to false and git history
+does not say much but in general. Just don't play with it as it can cause
+an av desync in case we are using a live source
+---
+ src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp b/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
+index 5aa69fe8..6a4160d0 100644
+--- a/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
++++ b/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
+@@ -1582,9 +1582,6 @@ void QGstreamerPlayerSession::playbinNotifySource(GObject *o, GParamSpec *p, gpo
+         qDebug() << "Current source is a non-live source";
+ #endif
+ 
+-    if (self->m_videoSink)
+-        g_object_set(G_OBJECT(self->m_videoSink), "sync", !self->m_isLiveSource, NULL);
+-
+     gst_object_unref(source);
+ }
+ 
+-- 
+2.15.0
+

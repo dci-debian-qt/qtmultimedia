@@ -1,0 +1,30 @@
+From d59fff9edc57e250466007184b31ca26bee45ad8 Mon Sep 17 00:00:00 2001
+From: Mohammed Hassan <mohammed.hassan@jolla.com>
+Date: Fri, 17 Apr 2015 14:40:55 +0300
+Subject: [PATCH 05/15] don't seek if the current position is the same
+
+---
+ src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp b/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
+index cc7aef36..5aa69fe8 100644
+--- a/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
++++ b/src/plugins/gstreamer/mediaplayer/qgstreamerplayersession.cpp
+@@ -956,6 +956,13 @@ void QGstreamerPlayerSession::stop()
+ 
+ bool QGstreamerPlayerSession::seek(qint64 ms)
+ {
++    if (ms == position()) {
++#ifdef DEBUG_PLAYBIN
++        qDebug() << "not seeking because the current position and requested position are the same";
++#endif
++        return true;
++    }
++
+ #ifdef DEBUG_PLAYBIN
+     qDebug() << Q_FUNC_INFO << ms;
+ #endif
+-- 
+2.15.0
+

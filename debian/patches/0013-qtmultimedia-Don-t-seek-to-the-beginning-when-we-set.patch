@@ -1,0 +1,29 @@
+From 697a10cabb3c0ab85d76442c22f94d4a5755a7ba Mon Sep 17 00:00:00 2001
+From: Mohammed Hassan <mohammed.hassan@jolla.com>
+Date: Fri, 14 Aug 2015 16:36:18 +0300
+Subject: [PATCH 13/15] [qtmultimedia] Don't seek to the beginning when we set
+ a new media. Fixes JB#30723
+
+There is no need to do any seeking since we will restart the pipeline which will
+cause GStreamer to start playback from the beginning. We just invalidate any potential
+pending seek request.
+---
+ src/plugins/gstreamer/mediaplayer/qgstreamerplayercontrol.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/plugins/gstreamer/mediaplayer/qgstreamerplayercontrol.cpp b/src/plugins/gstreamer/mediaplayer/qgstreamerplayercontrol.cpp
+index 4098f79a..39506afd 100644
+--- a/src/plugins/gstreamer/mediaplayer/qgstreamerplayercontrol.cpp
++++ b/src/plugins/gstreamer/mediaplayer/qgstreamerplayercontrol.cpp
+@@ -367,7 +367,7 @@ void QGstreamerPlayerControl::setMedia(const QMediaContent &content, QIODevice *
+ 
+     m_currentState = QMediaPlayer::StoppedState;
+     QMediaContent oldMedia = m_currentResource;
+-    m_pendingSeekPosition = 0;
++    m_pendingSeekPosition = -1;
+     m_session->showPrerollFrames(false); // do not show prerolled frames until pause() or play() explicitly called
+     m_setMediaPending = false;
+ 
+-- 
+2.15.0
+

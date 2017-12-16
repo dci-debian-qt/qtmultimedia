@@ -1,0 +1,127 @@
+From 56261d80e4b94ac14f1cdf335298b02bb41fdf9b Mon Sep 17 00:00:00 2001
+From: Mohammed Hassan <mohammed.hassan@jolla.com>
+Date: Tue, 21 Jul 2015 20:00:53 +0300
+Subject: [PATCH 12/15] [qtmultimedia] don't stop the camera pipeline until
+ it's done recording. Fixes JB#30862
+
+stopping video recording is asynchronous. Aan EOS event gets sent from camera source,
+travels across the whole pipeline until it reaches the muxer which then finalizes the
+file by writing the mov atom and friends and then pushes the EOS event farther downstream
+until it reaches our file writer (multifilesink in our case).
+
+The sink sends an EOS _message_ which is then caught by camerabin and causes it to flip the
+idle property from FALSE to TRUE.
+
+Any attempt to stop the pipeline before this property gets flipped will cause corrupted videos.
+Probably because the muxer gets shut down before it gets the EOS event so it does not write the
+needed header.
+
+When we are unloading camera we stop video recording and immediately switch camera bin to NULL state.
+This can lead to corrupted files. A more proper solution would be to postpone this pipeline tear down
+until we are idle.
+Since an application can attempt to start the pipeline again before it's completely unloaded, I have added
+a check to make sure we never tear down the pipeline if we are not in unloaded state. This check is also needed
+because we will be notified about the idle property change while we are loading the camera and we should
+not unload it when that happens.
+
+This also required removing the pipeline state change to NULL when we are loading camera.
+---
+ .../gstreamer/camerabin/camerabinsession.cpp       | 46 +++++++++++++++-------
+ src/plugins/gstreamer/camerabin/camerabinsession.h |  1 +
+ 2 files changed, 32 insertions(+), 15 deletions(-)
+
+diff --git a/src/plugins/gstreamer/camerabin/camerabinsession.cpp b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+index 65146903..98295114 100644
+--- a/src/plugins/gstreamer/camerabin/camerabinsession.cpp
++++ b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+@@ -774,8 +774,6 @@ void CameraBinSession::load()
+ 
+     setStatus(QCamera::LoadingStatus);
+ 
+-    gst_element_set_state(m_camerabin, GST_STATE_NULL);
+-
+     if (!setupCameraBin()) {
+         setError(QCamera::CameraError, QStringLiteral("No camera source available"));
+         return;
+@@ -802,22 +800,16 @@ void CameraBinSession::unload()
+     if (m_status == QCamera::UnloadedStatus || m_status == QCamera::UnloadingStatus)
+         return;
+ 
++    // We save the recording state in case something reacted to setStatus() and
++    // stopped recording.
++    bool wasRecording = m_recordingActive;
++
+     setStatus(QCamera::UnloadingStatus);
+ 
+     if (m_recordingActive)
+         stopVideoRecording();
+-
+-    if (m_viewfinderInterface)
+-        m_viewfinderInterface->stopRenderer();
+-
+-    gst_element_set_state(m_camerabin, GST_STATE_NULL);
+-
+-    if (m_busy)
+-        emit busyChanged(m_busy = false);
+-
+-    m_supportedViewfinderSettings.clear();
+-
+-    setStatus(QCamera::UnloadedStatus);
++    else if (!wasRecording)
++        handleBusyChanged(false);
+ }
+ 
+ void CameraBinSession::start()
+@@ -877,7 +869,7 @@ void CameraBinSession::updateBusyStatus(GObject *o, GParamSpec *p, gpointer d)
+ 
+     if (session->m_busy != busy) {
+         session->m_busy = busy;
+-        QMetaObject::invokeMethod(session, "busyChanged",
++        QMetaObject::invokeMethod(session, "handleBusyChanged",
+                                   Qt::QueuedConnection,
+                                   Q_ARG(bool, busy));
+     }
+@@ -1531,4 +1523,28 @@ void CameraBinSession::elementRemoved(GstBin *, GstElement *element, CameraBinSe
+         session->m_muxer = 0;
+ }
+ 
++void CameraBinSession::handleBusyChanged(bool busy)
++{
++    // don't do anything if we are not unloading.
++    // It could be that the camera is starting again while it is being unloaded
++    if (m_status != QCamera::UnloadingStatus) {
++        if (m_busy != busy)
++            emit busyChanged(m_busy = busy);
++        return;
++    }
++
++    // Now we can really stop
++    if (m_viewfinderInterface)
++        m_viewfinderInterface->stopRenderer();
++
++    gst_element_set_state(m_camerabin, GST_STATE_NULL);
++
++    if (m_busy != busy)
++        emit busyChanged(m_busy = busy);
++
++    m_supportedViewfinderSettings.clear();
++
++    setStatus(QCamera::UnloadedStatus);
++}
++
+ QT_END_NAMESPACE
+diff --git a/src/plugins/gstreamer/camerabin/camerabinsession.h b/src/plugins/gstreamer/camerabin/camerabinsession.h
+index d5c2d782..f88a2b41 100644
+--- a/src/plugins/gstreamer/camerabin/camerabinsession.h
++++ b/src/plugins/gstreamer/camerabin/camerabinsession.h
+@@ -189,6 +189,7 @@ public slots:
+ private slots:
+     void handleViewfinderChange();
+     void setupCaptureResolution();
++    void handleBusyChanged(bool busy);
+ 
+ private:
+     void load();
+-- 
+2.15.0
+

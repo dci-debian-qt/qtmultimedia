@@ -1,0 +1,32 @@
+From 546f6861e8826427e5fa174ef5280c13bd2db680 Mon Sep 17 00:00:00 2001
+From: Mohammed Hassan <mohammed.hassan@jolla.com>
+Date: Fri, 29 Jul 2016 11:26:06 +0300
+Subject: [PATCH 15/15] [camera] Account for errors reported by camera source.
+ Contributes to JB#35616
+
+There are errors which can occur during manipulating camera HW.
+camerabin does not relay any errors and it is the responsibility of camerabin
+user to handle those errors. We just react to them and propagate them farther.
+---
+ src/plugins/gstreamer/camerabin/camerabinsession.cpp | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/gstreamer/camerabin/camerabinsession.cpp b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+index 98295114..0402eee2 100644
+--- a/src/plugins/gstreamer/camerabin/camerabinsession.cpp
++++ b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+@@ -992,8 +992,9 @@ bool CameraBinSession::processBusMessage(const QGstreamerMessage &message)
+                 qWarning() << "CameraBin error:" << message;
+             }
+ 
+-            //only report error messager from camerabin
+-            if (GST_MESSAGE_SRC(gm) == GST_OBJECT_CAST(m_camerabin)) {
++            GstObject *src = GST_MESSAGE_SRC(gm);
++            //only report error messager from camerabin or camera source
++            if (src == GST_OBJECT_CAST(m_camerabin) || src == GST_OBJECT_CAST(m_cameraSrc)) {
+                 if (message.isEmpty())
+                     message = tr("Camera error");
+ 
+-- 
+2.15.0
+

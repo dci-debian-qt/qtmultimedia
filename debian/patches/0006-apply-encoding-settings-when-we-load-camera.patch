@@ -1,0 +1,39 @@
+From 6d6b346ca8cbe73f702e71ea5f6442b450717b02 Mon Sep 17 00:00:00 2001
+From: Mohammed Sameer <msameer@foolab.org>
+Date: Fri, 29 May 2015 01:47:54 +0300
+Subject: [PATCH 06/15] apply encoding settings when we load camera
+
+If we do not apply those then setting camerabin to READY will fail on SailfishOS because
+our camera source does not produce standard YUV data and the default constructed camerabin
+encoding profile will not work. This will lead to a situation where camera will never work
+---
+ src/plugins/gstreamer/camerabin/camerabinsession.cpp | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/src/plugins/gstreamer/camerabin/camerabinsession.cpp b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+index 4941c6ef..65146903 100644
+--- a/src/plugins/gstreamer/camerabin/camerabinsession.cpp
++++ b/src/plugins/gstreamer/camerabin/camerabinsession.cpp
+@@ -781,6 +781,19 @@ void CameraBinSession::load()
+         return;
+     }
+ 
++    m_recorderControl->applySettings();
++
++    GstEncodingContainerProfile *profile = m_recorderControl->videoProfile();
++    g_object_set (G_OBJECT(m_camerabin),
++                  "video-profile",
++                  profile,
++                  NULL);
++    gst_encoding_profile_unref(profile);
++
++    setAudioCaptureCaps();
++
++    setupCaptureResolution();
++
+     gst_element_set_state(m_camerabin, GST_STATE_READY);
+ }
+ 
+-- 
+2.15.0
+

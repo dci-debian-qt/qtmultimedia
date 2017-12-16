@@ -1,0 +1,97 @@
+From 66646baa65a9421748da7202b22f7275a8b792de Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Juho=20H=C3=A4m=C3=A4l=C3=A4inen?=
+ <juho.hamalainen@tieto.com>
+Date: Wed, 4 Mar 2015 12:09:42 +0200
+Subject: [PATCH 09/15] More thorough handling of VideoResourceType.
+
+Add proper application pid for VideoResource upon resource object
+creation. Also handle VideoResource when removing resource client.
+
+Change-Id: I1c19c875c2d7d3d29aa9426b092081e3fdf47588
+---
+ src/plugins/resourcepolicy/resourcepolicyint.cpp | 40 ++++++++++++++++++------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
+
+diff --git a/src/plugins/resourcepolicy/resourcepolicyint.cpp b/src/plugins/resourcepolicy/resourcepolicyint.cpp
+index 881888db..8d6e177f 100644
+--- a/src/plugins/resourcepolicy/resourcepolicyint.cpp
++++ b/src/plugins/resourcepolicy/resourcepolicyint.cpp
+@@ -133,25 +133,34 @@ void ResourcePolicyInt::removeClient(ResourcePolicyImpl *client)
+ #ifdef RESOURCE_DEBUG
+         qDebug() << "##### Remove client " << client << " : " << i.value().id;
+ #endif
+-        if (i.value().status == GrantedResource)
+-            --m_acquired;
++        // First release clients resources, if any
++        release(client);
++
++        if (i.value().videoEnabled) {
++            --m_video;
++            if (m_video == 0) {
++                m_resourceSet->deleteResource(ResourcePolicy::VideoPlaybackType);
++                m_resourceSet->update();
++            }
++        }
++
+         m_clients.erase(i);
+-    }
+ 
+-    if (m_acquired == 0 && m_status != Initial) {
+ #ifdef RESOURCE_DEBUG
+-        qDebug() << "##### Remove client, acquired = 0, release";
++        qDebug() << "##### Removed client " << client;
+ #endif
+-        m_resourceSet->release();
+-        m_status = Initial;
+     }
+ }
+ 
+ bool ResourcePolicyInt::isVideoEnabled(const ResourcePolicyImpl *client) const
+ {
+     QMap<const ResourcePolicyImpl*, clientEntry>::const_iterator i = m_clients.find(client);
+-    if (i != m_clients.constEnd())
++    if (i != m_clients.constEnd()) {
++#ifdef RESOURCE_DEBUG
++        qDebug() << "##### isVideoEnabled(" << i.value().id << ") -> " << i.value().videoEnabled;
++#endif
+         return i.value().videoEnabled;
++    }
+ 
+     return false;
+ }
+@@ -165,11 +174,17 @@ void ResourcePolicyInt::setVideoEnabled(const ResourcePolicyImpl *client, bool v
+         if (videoEnabled == i.value().videoEnabled)
+             return;
+ 
++#ifdef RESOURCE_DEBUG
++        qDebug() << "##### setVideoEnabled(" << i.value().id << ", " << videoEnabled << ")";
++#endif
++
+         if (videoEnabled) {
+             if (m_video > 0) {
+                 i.value().videoEnabled = true;
+             } else {
+-                m_resourceSet->addResource(ResourcePolicy::VideoPlaybackType);
++                ResourcePolicy::VideoResource *videoResource = new ResourcePolicy::VideoResource();
++                videoResource->setProcessID(QCoreApplication::applicationPid());
++                m_resourceSet->addResourceObject(videoResource);
+                 update = true;
+             }
+             ++m_video;
+@@ -183,7 +198,12 @@ void ResourcePolicyInt::setVideoEnabled(const ResourcePolicyImpl *client, bool v
+         }
+     }
+ 
+-    if (update)
++#ifdef RESOURCE_DEBUG
++    qDebug() << "##### setVideoEnabled m_video " << m_video;
++    if (update) qDebug() << "      Calling update()";
++#endif
++
++    if (update && m_status != Initial)
+         m_resourceSet->update();
+ }
+ 
+-- 
+2.15.0
+
