@@ -1,1 +1,4 @@
 rpath_nonlinux.diff
+
+# plasma mobile related patches
+0001-Add-a-control-which-allows-overriding-the-gstreamer-.patch
