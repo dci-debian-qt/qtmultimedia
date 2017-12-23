@@ -18,6 +18,4 @@ rpath_nonlinux.diff
 0013-qtmultimedia-Don-t-seek-to-the-beginning-when-we-set.patch
 0014-nemo-Add-support-for-camera-torch-mode.patch
 0015-camera-Account-for-errors-reported-by-camera-source..patch
-0016-Mer-disable-camerabin-previews-handling.patch
-0017-nemo-Add-basic-ready-for-capture-handling-to-CameraB.patch
-0018-nemo-gstreamer-take-into-account-ready-for-capture-p.patch
+
